@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# David Obando Reyes — Portfolio
 
-## Getting Started
+UX Engineer portfolio built with **Next.js**, **Tailwind CSS**, and optional **Supabase**.
 
-First, run the development server:
+Inspired by a clean editorial layout (work-first), with:
+
+- Light / dark mode
+- Interactive skill tree (+ list view)
+- Full case-study pages
+- LinkedIn + CV download
+- Contact form (Supabase or local log in draft mode)
+
+## Quick start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site ships with seeded content from your CV and LinkedIn in `src/lib/seed.ts`. Supabase is optional for the first draft.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Downloads
 
-## Learn More
+- CV: [`/david-obando-reyes-cv.pdf`](./public/david-obando-reyes-cv.pdf)
+- LinkedIn: https://www.linkedin.com/in/davidobandor/
 
-To learn more about Next.js, take a look at the following resources:
+## Supabase (optional)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create a Supabase project.
+2. Run [`supabase/migrations/001_init.sql`](./supabase/migrations/001_init.sql) in the SQL editor.
+3. Copy `.env.example` → `.env.local` and fill in URL + anon key.
+4. Insert rows matching the shape in `src/lib/seed.ts` (or keep using seed until you migrate).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Public tables are read-only via RLS. `contact_messages` allows public inserts only.
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Command       | Description        |
+| ------------- | ------------------ |
+| `npm run dev` | Local development  |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | ESLint             |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content editing
+
+- Without Supabase: edit `src/lib/seed.ts`
+- With Supabase: edit tables in the Supabase dashboard
+- Case-study images: upload to a Storage bucket and set `image_url` on `project_artifacts`
