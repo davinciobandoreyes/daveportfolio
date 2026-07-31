@@ -461,35 +461,125 @@ ol {
   color: var(--accent);
 }
 
-.work-list {
-  border-top: 1px solid var(--line);
-}
-
-.work-row {
+.work-grid {
   display: grid;
+  gap: 1.5rem;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
-  padding: 1.4rem 0.2rem;
-  border-bottom: 1px solid var(--line);
-  text-decoration: none;
-  transition: padding-left 180ms ease, background 180ms ease;
 }
 
-.work-row:hover {
-  padding-left: 0.55rem;
+@media (min-width: 700px) {
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .work-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
   color: inherit;
-  background: linear-gradient(
-    90deg,
-    var(--accent-soft),
-    transparent 55%
-  );
+  border-radius: calc(var(--radius) + 2px);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.work-card:hover {
+  color: inherit;
+  transform: translateY(-4px);
+  border-color: color-mix(in oklab, var(--accent) 40%, var(--line));
+  box-shadow: var(--shadow);
+}
+
+.work-thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--accent-soft);
+}
+
+.work-thumb-img {
+  object-fit: cover;
+  transition: transform 280ms ease;
+}
+
+.work-card:hover .work-thumb-img {
+  transform: scale(1.04);
+}
+
+.work-thumb-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  padding: 1.1rem 1.15rem;
+  background:
+    radial-gradient(circle at 85% 15%, color-mix(in oklab, var(--accent) 35%, transparent), transparent 45%),
+    linear-gradient(
+      160deg,
+      color-mix(in oklab, var(--fg) 8%, transparent),
+      color-mix(in oklab, var(--accent) 22%, transparent) 70%
+    );
+}
+
+.work-card-gaming .work-thumb-placeholder {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(88, 140, 255, 0.35), transparent 50%),
+    linear-gradient(160deg, rgba(20, 30, 55, 0.35), rgba(15, 110, 86, 0.28));
+}
+
+.work-card-fintech .work-thumb-placeholder {
+  background:
+    radial-gradient(circle at 80% 30%, rgba(196, 140, 72, 0.35), transparent 50%),
+    linear-gradient(160deg, rgba(40, 35, 20, 0.2), rgba(15, 110, 86, 0.22));
+}
+
+.work-card-automotive .work-thumb-placeholder {
+  background:
+    radial-gradient(circle at 70% 40%, rgba(90, 110, 120, 0.35), transparent 50%),
+    linear-gradient(160deg, rgba(30, 40, 45, 0.25), rgba(15, 110, 86, 0.2));
+}
+
+.work-thumb-category {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--fg) 75%, transparent);
+}
+
+.work-thumb-title {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  max-width: 16ch;
+}
+
+.work-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.15rem 1.15rem 1.3rem;
+  flex: 1;
 }
 
 .work-meta {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--muted);
 }
 
@@ -497,30 +587,50 @@ ol {
   text-transform: capitalize;
 }
 
-.work-main h3 {
-  font-size: 1.45rem;
-  margin-bottom: 0.35rem;
+.work-card-body h3 {
+  font-size: 1.35rem;
+  line-height: 1.2;
 }
 
-.work-main p {
-  color: var(--muted);
+.work-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.15rem;
 }
 
-.work-arrow {
-  display: none;
+.work-metrics li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--accent-soft) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 18%, var(--line));
+}
+
+.work-metric-value {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.2;
   color: var(--accent);
-  font-size: 1.4rem;
 }
 
-@media (min-width: 800px) {
-  .work-row {
-    grid-template-columns: 220px 1fr auto;
-    align-items: center;
-  }
+.work-metric-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
 
-  .work-arrow {
-    display: block;
-  }
+.work-card-summary {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .skill-tree-layout {

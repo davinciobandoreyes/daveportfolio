@@ -58,7 +58,18 @@ export const projects: Project[] = [
     technologies: ["Figma", "Claude", "Cursor AI"],
     leadership:
       "Grew from UX design into product management ownership — shaping strategy, prioritizing opportunities, defining requirements, and partnering with engineering from concept through delivery.",
-    impact_metrics: [],
+    impact_metrics: [
+      {
+        label: "Ownership",
+        value: "End-to-end PM + UX",
+        note: "Strategy, requirements, and engineering partnership",
+      },
+      {
+        label: "Workflow",
+        value: "AI-accelerated design",
+        note: "Integrated Claude into ideation and product workflows",
+      },
+    ],
   },
   {
     id: "p-fortnite",
@@ -96,8 +107,13 @@ export const projects: Project[] = [
     impact_metrics: [
       {
         label: "Engagement",
-        value: "↑ returning-user engagement",
+        value: "↑ returning users",
         note: "Improved adoption of key Locker features",
+      },
+      {
+        label: "Platforms",
+        value: "5 platforms",
+        note: "Desktop, Switch, PlayStation, Xbox, Mobile",
       },
     ],
   },
@@ -130,7 +146,18 @@ export const projects: Project[] = [
     technologies: ["Figma", "Maze"],
     leadership:
       "Led the design team in an Agile environment and partnered with the Project Manager on product planning.",
-    impact_metrics: [],
+    impact_metrics: [
+      {
+        label: "System",
+        value: "Design system shipped",
+        note: "Built the product’s design system in Figma",
+      },
+      {
+        label: "Validation",
+        value: "Maze usability tests",
+        note: "Improved driver and instructor app usability",
+      },
+    ],
   },
   {
     id: "p-mibanco",
@@ -162,7 +189,18 @@ export const projects: Project[] = [
     technologies: ["Figma", "InVision"],
     leadership:
       "Developed the company’s first design system and introduced DesignOps practices to improve team performance.",
-    impact_metrics: [],
+    impact_metrics: [
+      {
+        label: "Foundation",
+        value: "First design system",
+        note: "Established shared UI foundations for web and mobile",
+      },
+      {
+        label: "Ops",
+        value: "DesignOps introduced",
+        note: "Integrated Agile practices to improve team performance",
+      },
+    ],
   },
   {
     id: "p-notiplac",

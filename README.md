@@ -49,3 +49,4 @@ Public tables are read-only via RLS. `contact_messages` allows public inserts on
 - Without Supabase: edit `src/lib/seed.ts`
 - With Supabase: edit tables in the Supabase dashboard
 - Case-study images: upload to a Storage bucket and set `image_url` on `project_artifacts`
+- Work thumbnails: add images under `public/work/` (e.g. `public/work/fortnite-locker.jpg`) and set each project’s `cover_url` in `src/lib/seed.ts` (e.g. `"/work/fortnite-locker.jpg"`). Until then, category placeholders render automatically.

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Project, ProjectCategory } from "@/lib/types";
@@ -46,24 +47,63 @@ export function WorkList({ projects }: { projects: Project[] }) {
           ))}
         </div>
 
-        <ul className="work-list">
-          {visible.map((project) => (
-            <li key={project.id}>
-              <Link href={`/work/${project.slug}`} className="work-row">
-                <div className="work-meta">
-                  <span className="work-client">{project.client}</span>
-                  <span className="work-category">{project.category}</span>
-                </div>
-                <div className="work-main">
-                  <h3>{project.title}</h3>
-                  <p>{project.summary}</p>
-                </div>
-                <span className="work-arrow" aria-hidden>
-                  →
-                </span>
-              </Link>
-            </li>
-          ))}
+        <ul className="work-grid">
+          {visible.map((project) => {
+            const metrics = project.impact_metrics.slice(0, 2);
+
+            return (
+              <li key={project.id}>
+                <Link
+                  href={`/work/${project.slug}`}
+                  className={`work-card work-card-${project.category}`}
+                >
+                  <div className="work-thumb">
+                    {project.cover_url ? (
+                      <Image
+                        src={project.cover_url}
+                        alt=""
+                        fill
+                        sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                        className="work-thumb-img"
+                      />
+                    ) : (
+                      <div className="work-thumb-placeholder" aria-hidden>
+                        <span className="work-thumb-category">
+                          {project.category}
+                        </span>
+                        <span className="work-thumb-title">{project.title}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="work-card-body">
+                    <div className="work-meta">
+                      <span className="work-client">{project.client}</span>
+                      <span className="work-category">{project.category}</span>
+                    </div>
+                    <h3>{project.title}</h3>
+
+                    {metrics.length > 0 && (
+                      <ul className="work-metrics">
+                        {metrics.map((metric) => (
+                          <li key={`${metric.label}-${metric.value}`}>
+                            <span className="work-metric-value">
+                              {metric.value}
+                            </span>
+                            <span className="work-metric-label">
+                              {metric.label}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <p className="work-card-summary">{project.summary}</p>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
