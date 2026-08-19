@@ -60,7 +60,7 @@ export const profile: Profile = {
   links: {
     linkedin: "https://www.linkedin.com/in/davidobandor/",
     cv_path: "/david-obando-reyes-cv.pdf",
-    behance: "https://www.behance.net/TABUKAOBANDO",
+    behance: "https://www.behance.net/davidobandor/",
     medium:
       "https://medium.com/@davinciobandoreyes/from-laid-off-to-landing-interviews-a-product-designers-playbook-for-2026-7b04b65c60fe",
   },
