@@ -1,20 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { getProfile } from "@/lib/data";
 import "./globals.css";
-
-const display = Fraunces({
-  variable: "--font-display",
-  subsets: ["latin"],
-});
-
-const body = Manrope({
-  variable: "--font-body",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "David Obando Reyes · UX Engineer",
@@ -31,7 +22,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${display.variable} ${body.variable} antialiased`}>
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
+      >
         <ThemeProvider>
           <SiteNav />
           <main>{children}</main>
