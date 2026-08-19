@@ -15,6 +15,38 @@ const base = {
   focusable: false as const,
 };
 
+export function ChevronLeftIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  );
+}
+
+export function ChevronRightIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M9 18l6-6-6-6" />
+    </svg>
+  );
+}
+
+export function UserIcon({ className }: IconProps) {
+  return (
+    <svg
+      className={className}
+      width={20}
+      height={20}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+      focusable={false}
+    >
+      <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12zm0 2c-4.2 0-7.5 2.1-7.5 4.7V21h15v-2.3c0-2.6-3.3-4.7-7.5-4.7z" />
+    </svg>
+  );
+}
+
 export function CvIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className}>

@@ -119,4 +119,6 @@ export type Testimonial = {
   author: string;
   role: string;
   company: string;
+  /** Optional portrait. Falls back to the default avatar until a photo is added. */
+  avatar_url?: string | null;
 };

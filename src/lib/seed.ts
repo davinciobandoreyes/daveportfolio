@@ -775,18 +775,50 @@ export const testimonials: Testimonial[] = [
   {
     id: "t1",
     quote:
-      "I had the pleasure of working closely with David as he grew from a UX designer into a highly capable product manager. He consistently brought strong user empathy, thoughtful design judgment, and a practical understanding of how to turn complex needs into intuitive products. He would be a tremendous addition to any team looking for someone who combines product thinking, design expertise, a strong work ethic, and genuine care for both users and colleagues.",
+      "I had the pleasure of working closely with David as he grew from a UX designer into a highly capable product manager. He initially joined our team designing teacher- and student-facing experiences, where he consistently brought strong user empathy, thoughtful design judgment, and a practical understanding of how to turn complex needs into intuitive products. Over time, David expanded his responsibilities beyond design and took ownership of our student engagement experience, helping shape product strategy, prioritize opportunities, define requirements, and collaborate closely with engineering from concept through delivery.\n\nWhat stands out most about David, though, is the kind of teammate he is. He is exceptionally dedicated and reliable. David is a person you can trust to follow through, support the team, and keep moving the work forward even when the path is not straightforward. He approaches challenges with humility and curiosity and is constantly looking for opportunities to learn, improve his craft, and broaden the value he can provide.\n\nDavid’s evolution from UX designer to product manager reflects both his versatility and his commitment to growth. He would be a tremendous addition to any team looking for someone who combines product thinking, design expertise, a strong work ethic, and genuine care for both users and colleagues.",
     author: "Hollin Wakefield",
-    role: "Collaborator",
+    role: "Chief Product and Technology Officer",
     company: "Yourway Learning",
   },
   {
     id: "t2",
     quote:
-      "I had the opportunity to work with David at Yourway and see how he grew from a very strong UX Designer into a Product Manager. One of his biggest strengths is how he combines both perspectives, always understanding the users while also keeping the business needs in mind.",
+      "I had the opportunity to work with David at Yourway and see how he grew from a very strong UX Designer into a Product Manager. One of his biggest strengths is how he combines both perspectives, always understanding the users while also keeping the business needs in mind. David brings a lot of value to product conversations and has a great ability to connect design, product, and strategy in a very thoughtful way. I'm sure he'll make a great impact wherever he goes.",
     author: "Belén Gudiño",
-    role: "Collaborator",
+    role: "Senior Product Manager",
     company: "Yourway Learning",
+  },
+  {
+    id: "t3",
+    quote:
+      "David is an extremely professional, highly talented Product Designer. I had the honor to work with him on numerous initiatives... and his knowledge about UX, Gamification and Vibecoding is one of a kind. I also had the privilege to see his transition from product into a Leadership role where he shined as a sawvy, collaborative and hands-on leader.",
+    author: "Luis Alvarez",
+    role: "Product Designer",
+    company: "Yourway Learning",
+  },
+  {
+    id: "t4",
+    quote:
+      "I’ve had the opportunity to work with David, and I can confidently say he is someone who truly pushes things forward. As a designer, he is highly versatile and always willing to support the team, even contributing across different areas. This has given him a holistic understanding of product development.",
+    author: "Andrés Quevedo",
+    role: "Co-founder",
+    company: "Boken",
+  },
+  {
+    id: "t5",
+    quote:
+      "I’ve had the privilege of working alongside David for nearly three years in game development, serving as his Producer.\n\nHe stands out as one of the most talented and professional UX designers I’ve had the pleasure of collaborating with.\n\nDavid brings deep expertise across the entire UX/UI design workflow—from ideation to implementation—on gaming projects spanning console, PC, and mobile platforms.\n\nHis passion for design is evident in everything he does, and his approach is consistently data-driven, seamlessly integrating insights from UX research, product teams, analytics, and user behavior.\n\nWhat truly sets David apart is his independence and proactive mindset. He excels in cross-functional collaboration, consistently delivering high-quality mockups, wireframes, prototypes, and documentation that supports development from early stages through to release.\n\nHis adaptability and openness to feedback, even during late-stage changes, makes him an invaluable team member.\n\nDavid is a true talent in the UX space, and any team would be lucky to have him.",
+    author: "Matias Manzano",
+    role: "Producer",
+    company: "Globant",
+  },
+  {
+    id: "t6",
+    quote:
+      "David has been a great asset to the redesign of Truckers Network. He is a multi-talented Senior UX designers who brings great insight to the customer experience.\n\nDavid's advanced knowledge of Figma helped us implement many intuitive designs into our service offering. David guided the team to seamlessly integrate his Figma designs into our Telerik development platform with minimal effort from development, enabling us to completely change the look and feel of our application with a push of a button. This saved us countless man-hours contributing to faster time-to-market deliverables.\n\nDavid's organizational skills helped us establish design template guidelines that assisted development in producing consistent user interface workflows. David's listening skills and patience compliments his energy and enthusiasm, working with David is both effective and enjoyable.\n\nI would highly recommend David for any UX Design position, I'm confident that David will deliver beyond your expectations.",
+    author: "James Edgell",
+    role: "CTO",
+    company: "Truckers Network",
   },
 ];
 
