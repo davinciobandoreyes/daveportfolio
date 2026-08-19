@@ -19,7 +19,7 @@ export function SiteNav() {
     <header className="site-header">
       <div className="site-header-inner">
         <Link href="/" className="brand-mark" onClick={() => setOpen(false)}>
-          David Obando Reyes
+          David Obando R.
         </Link>
 
         <nav

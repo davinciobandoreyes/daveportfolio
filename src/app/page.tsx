@@ -2,7 +2,7 @@ import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Experience } from "@/components/Experience";
 import { Hero } from "@/components/Hero";
-import { SkillTree } from "@/components/SkillTree";
+import { Skills } from "@/components/Skills";
 import { Testimonials } from "@/components/Testimonials";
 import { WorkList } from "@/components/WorkList";
 import {
@@ -30,7 +30,7 @@ export default async function HomePage() {
     <>
       <Hero profile={profile} />
       <WorkList projects={projects} />
-      <SkillTree skills={skillData.skills} edges={skillData.edges} />
+      <Skills skills={skillData.skills} />
       <Experience items={experiences} />
       <Testimonials items={testimonials} />
       <About

@@ -164,7 +164,6 @@ ol {
 
 .site-nav a,
 .text-btn,
-.theme-toggle,
 .menu-btn {
   background: none;
   border: 0;
@@ -177,7 +176,6 @@ ol {
 
 .site-nav a:hover,
 .text-btn:hover,
-.theme-toggle:hover,
 .menu-btn:hover {
   color: var(--accent);
 }
@@ -188,12 +186,83 @@ ol {
   gap: 0.85rem;
 }
 
-.theme-toggle,
 .menu-btn {
   font-size: 0.85rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.35rem 0.75rem;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-toggle:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.theme-toggle-track {
+  position: relative;
+  display: block;
+  width: 3.1rem;
+  height: 1.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--muted) 18%, var(--bg));
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.theme-toggle.is-dark .theme-toggle-track {
+  background: color-mix(in oklab, var(--accent) 28%, var(--bg));
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--line));
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(1.7rem - 6px);
+  height: calc(1.7rem - 6px);
+  border-radius: 50%;
+  background: var(--fg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.theme-toggle.is-dark .theme-toggle-thumb {
+  transform: translateX(1.4rem);
+  background: var(--bg);
+}
+
+.theme-toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.7rem;
+  height: 0.7rem;
+  opacity: 0.45;
+  pointer-events: none;
+  color: var(--fg);
+}
+
+.theme-toggle-sun {
+  left: 0.35rem;
+}
+
+.theme-toggle-moon {
+  right: 0.35rem;
+}
+
+.theme-toggle.is-light .theme-toggle-sun,
+.theme-toggle.is-dark .theme-toggle-moon {
+  opacity: 0.85;
 }
 
 @media (min-width: 900px) {
@@ -631,6 +700,107 @@ ol {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.skills-pill-layout {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 800px) {
+  .skills-pill-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 2.5rem;
+  }
+}
+
+.skills-branch h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.85rem;
+}
+
+.skills-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.skill-pill {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg-elevated) 85%, transparent);
+  color: inherit;
+  font: inherit;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.skill-pill:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--line));
+  color: var(--accent);
+  box-shadow: 0 8px 18px color-mix(in oklab, var(--fg) 8%, transparent);
+}
+
+.skill-pill.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 10px 22px color-mix(in oklab, var(--accent) 28%, transparent);
+}
+
+.skill-pill.level-1 {
+  font-weight: 600;
+}
+
+.skill-pill.level-3 {
+  opacity: 0.92;
+}
+
+.skill-pill-detail {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  max-width: 40rem;
+  animation: skill-detail-in 180ms ease;
+}
+
+@keyframes skill-detail-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-pill-detail .skill-branch {
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.skill-pill-detail h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.45rem;
+}
+
+.skill-pill-detail p:last-child {
+  color: var(--muted);
 }
 
 .skill-tree-layout {
