@@ -3,22 +3,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { Project, ProjectCategory } from "@/lib/types";
+import {
+  PROJECT_CATEGORY_LABELS,
+  type Project,
+  type ProjectCategory,
+} from "@/lib/types";
 
 const filters: { id: "all" | ProjectCategory; label: string }[] = [
   { id: "all", label: "All" },
-  { id: "product", label: "Product" },
-  { id: "gaming", label: "Gaming" },
+  { id: "edutech", label: "Edutech" },
+  { id: "healthtech", label: "Health tech" },
   { id: "fintech", label: "Fintech" },
+  { id: "gaming", label: "Gaming" },
+  { id: "use-cases", label: "Use cases" },
   { id: "automotive", label: "Automotive" },
+  { id: "ai", label: "AI" },
 ];
+
+function categoryLabels(categories: ProjectCategory[]) {
+  return categories.map((c) => PROJECT_CATEGORY_LABELS[c]).join(" · ");
+}
 
 export function WorkList({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<"all" | ProjectCategory>("all");
 
   const visible = useMemo(() => {
     if (filter === "all") return projects;
-    return projects.filter((p) => p.category === filter);
+    return projects.filter((p) => p.categories.includes(filter));
   }, [filter, projects]);
 
   return (
@@ -27,8 +38,8 @@ export function WorkList({ projects }: { projects: Project[] }) {
         <div className="section-head">
           <h2>Work</h2>
           <p className="section-lead">
-            Selected product and UX work across learning, games, fintech, and
-            automotive.
+            Selected product and UX work across edutech, health tech, fintech,
+            gaming, automotive, and AI.
           </p>
         </div>
 
@@ -50,12 +61,14 @@ export function WorkList({ projects }: { projects: Project[] }) {
         <ul className="work-grid">
           {visible.map((project) => {
             const metrics = project.impact_metrics.slice(0, 2);
+            const primary = project.categories[0];
+            const labels = categoryLabels(project.categories);
 
             return (
               <li key={project.id}>
                 <Link
                   href={`/work/${project.slug}`}
-                  className={`work-card work-card-${project.category}`}
+                  className={`work-card${primary ? ` work-card-${primary}` : ""}`}
                 >
                   <div className="work-thumb">
                     {project.cover_url ? (
@@ -68,9 +81,7 @@ export function WorkList({ projects }: { projects: Project[] }) {
                       />
                     ) : (
                       <div className="work-thumb-placeholder" aria-hidden>
-                        <span className="work-thumb-category">
-                          {project.category}
-                        </span>
+                        <span className="work-thumb-category">{labels}</span>
                         <span className="work-thumb-title">{project.title}</span>
                       </div>
                     )}
@@ -79,7 +90,7 @@ export function WorkList({ projects }: { projects: Project[] }) {
                   <div className="work-card-body">
                     <div className="work-meta">
                       <span className="work-client">{project.client}</span>
-                      <span className="work-category">{project.category}</span>
+                      <span className="work-category">{labels}</span>
                     </div>
                     <h3>{project.title}</h3>
 

@@ -21,7 +21,24 @@ export type ImpactMetric = {
   note?: string;
 };
 
-export type ProjectCategory = "product" | "gaming" | "fintech" | "automotive";
+export type ProjectCategory =
+  | "edutech"
+  | "healthtech"
+  | "fintech"
+  | "gaming"
+  | "use-cases"
+  | "automotive"
+  | "ai";
+
+export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
+  edutech: "Edutech",
+  healthtech: "Health tech",
+  fintech: "Fintech",
+  gaming: "Gaming",
+  "use-cases": "Use cases",
+  automotive: "Automotive",
+  ai: "AI",
+};
 
 export type Project = {
   id: string;
@@ -31,7 +48,7 @@ export type Project = {
   company_url: string | null;
   role: string;
   summary: string;
-  category: ProjectCategory;
+  categories: ProjectCategory[];
   platforms: string[];
   cover_url: string | null;
   sort: number;

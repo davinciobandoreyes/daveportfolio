@@ -920,6 +920,62 @@ ol {
     );
 }
 
+.work-card-edutech .work-thumb-placeholder {
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      color-mix(in srgb, var(--gradient-develop-start) 28%, transparent),
+      transparent 50%
+    ),
+    linear-gradient(
+      160deg,
+      var(--canvas-soft-2),
+      color-mix(in srgb, var(--gradient-develop-end) 14%, var(--canvas-soft))
+    );
+}
+
+.work-card-healthtech .work-thumb-placeholder {
+  background:
+    radial-gradient(
+      circle at 25% 30%,
+      color-mix(in srgb, var(--gradient-preview-end) 22%, transparent),
+      transparent 50%
+    ),
+    linear-gradient(
+      160deg,
+      var(--canvas-soft-2),
+      color-mix(in srgb, var(--violet) 14%, var(--canvas-soft))
+    );
+}
+
+.work-card-use-cases .work-thumb-placeholder {
+  background:
+    radial-gradient(
+      circle at 80% 25%,
+      color-mix(in srgb, var(--gradient-ship-start) 24%, transparent),
+      transparent 50%
+    ),
+    linear-gradient(
+      160deg,
+      var(--canvas-soft-2),
+      color-mix(in srgb, var(--warning) 12%, var(--canvas-soft))
+    );
+}
+
+.work-card-ai .work-thumb-placeholder {
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      color-mix(in srgb, var(--cyan) 28%, transparent),
+      transparent 50%
+    ),
+    linear-gradient(
+      160deg,
+      var(--canvas-soft-2),
+      color-mix(in srgb, var(--gradient-develop-end) 12%, var(--canvas-soft))
+    );
+}
+
 .work-thumb-category {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 12px;
@@ -957,7 +1013,7 @@ ol {
 }
 
 .work-category {
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 .work-card-body h3 {
