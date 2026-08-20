@@ -5,6 +5,12 @@ export type ProfileLinks = {
   medium: string;
 };
 
+export type ImpactMetric = {
+  label: string;
+  value: string;
+  note?: string;
+};
+
 export type Profile = {
   name: string;
   title: string;
@@ -13,12 +19,7 @@ export type Profile = {
   location: string;
   links: ProfileLinks;
   languages: string[];
-};
-
-export type ImpactMetric = {
-  label: string;
-  value: string;
-  note?: string;
+  highlights?: ImpactMetric[];
 };
 
 export type ProjectCategory =

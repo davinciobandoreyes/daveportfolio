@@ -503,7 +503,8 @@ ol {
   position: relative;
   min-height: min(88vh, 820px);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   padding: var(--space-4xl) var(--space-lg) var(--space-5xl);
   overflow: hidden;
   background: var(--canvas);
@@ -661,6 +662,41 @@ ol {
 
 .hero-cta-tertiary .link-with-icon:hover {
   color: var(--link);
+}
+
+.hero-metrics {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max);
+  margin: var(--space-3xl) auto 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--hairline);
+  list-style: none;
+}
+
+@media (min-width: 800px) {
+  .hero-metrics {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.hero-metric-value {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.6px;
+  color: var(--ink);
+}
+
+.hero-metric-label {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--mute);
 }
 
 .about-actions {

@@ -111,6 +111,22 @@ export function Hero({ profile }: { profile: Profile }) {
           />
         </motion.div>
       </div>
+
+      {profile.highlights && profile.highlights.length > 0 && (
+        <motion.ul
+          className="hero-metrics"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.28 }}
+        >
+          {profile.highlights.map((item) => (
+            <li key={`${item.value}-${item.label}`}>
+              <p className="hero-metric-value">{item.value}</p>
+              <p className="hero-metric-label">{item.label}</p>
+            </li>
+          ))}
+        </motion.ul>
+      )}
     </section>
   );
 }

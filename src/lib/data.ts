@@ -29,7 +29,11 @@ export async function getProfile(): Promise<Profile> {
 
   const { data, error } = await supabase.from("profiles").select("*").limit(1).maybeSingle();
   if (error || !data) return seedProfile;
-  return data as Profile;
+  const profile = data as Profile;
+  return {
+    ...profile,
+    highlights: profile.highlights?.length ? profile.highlights : seedProfile.highlights,
+  };
 }
 
 export async function getProjects(): Promise<Project[]> {

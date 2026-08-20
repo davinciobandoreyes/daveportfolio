@@ -69,6 +69,11 @@ export const profile: Profile = {
     "English (Advanced / Bilingual)",
     "Japanese (Basic)",
   ],
+  highlights: [
+    { value: "10+", label: "Years of experience" },
+    { value: "6+", label: "Industries" },
+    { value: "Multi-disciplinary", label: "Product Manager, gamification, and Ai product design" },
+  ],
 };
 
 export const projects: Project[] = [
