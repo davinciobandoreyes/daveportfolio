@@ -54,7 +54,7 @@ function stubProject({
 export const profile: Profile = {
   name: "David Obando Reyes",
   title: "UX Engineer",
-  bio: "Senior UX/UI and product designer building digital products end to end — from research and strategy to prototypes, design systems, and agentic AI-assisted workflows. Based in Cali, Colombia.",
+  bio: "Senior UX/UI & Product Designer crafting digital products end-to-end—from research and strategy to interaction design, design systems, and AI-powered experiences. Exploring how agentic AI can transform the way we design, build, and use digital products. Based in Cali, Colombia.",
   email: "davinciobandoreyes@gmail.com",
   location: "Cali, Valle del Cauca, Colombia",
   links: {
