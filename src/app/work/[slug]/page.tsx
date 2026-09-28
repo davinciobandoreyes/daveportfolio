@@ -3,8 +3,15 @@ import { notFound } from "next/navigation";
 import { ArtifactGallery } from "@/components/case-study/ArtifactGallery";
 import { CaseStudyHeader } from "@/components/case-study/CaseStudyHeader";
 import { CaseStudySection } from "@/components/case-study/CaseStudySection";
+import { DesignProcessFlow } from "@/components/case-study/DesignProcessFlow";
 import { MetricsRow } from "@/components/case-study/MetricsRow";
 import { PrevNext } from "@/components/case-study/PrevNext";
+import { BenchmarkTable } from "@/components/case-study/BenchmarkTable";
+import { DesignDecisions } from "@/components/case-study/DesignDecisions";
+import { StarCase } from "@/components/case-study/StarCase";
+import { InsightMetrics } from "@/components/case-study/InsightMetrics";
+import { ProductScenes } from "@/components/case-study/ProductScenes";
+import { UserJourneyMap } from "@/components/case-study/UserJourneyMap";
 import {
   getProjectArtifacts,
   getProjectBySlug,
@@ -18,6 +25,17 @@ type Props = {
 
 function byType(artifacts: ProjectArtifact[], type: ArtifactType) {
   return artifacts.filter((a) => a.type === type);
+}
+
+function TagList({ items }: { items: string[] }) {
+  if (!items.length) return null;
+  return (
+    <ul className="tag-list">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
 }
 
 export async function generateStaticParams() {
@@ -46,6 +64,16 @@ export default async function CaseStudyPage({ params }: Props) {
   const prev = index > 0 ? projects[index - 1] : null;
   const next = index < projects.length - 1 ? projects[index + 1] : null;
 
+  const insights = byType(artifacts, "ux_artifact");
+  const journeys = byType(artifacts, "user_journey");
+  const drafts = byType(artifacts, "handmade_draft");
+  const flows = byType(artifacts, "user_flow");
+  const lowFi = byType(artifacts, "low_fi");
+  const screens = byType(artifacts, "hi_fi");
+  const hasProcess = Boolean(project.process);
+  const hasMethods = project.methodologies.length > 0;
+  const hasTools = project.technologies.length > 0;
+
   return (
     <article className="case-page">
       <div className="case-page-inner">
@@ -67,29 +95,103 @@ export default async function CaseStudyPage({ params }: Props) {
           </CaseStudySection>
         )}
 
-        {project.methodologies.length > 0 && (
+        {project.goals && project.goals.length > 0 && (
+          <CaseStudySection title="Goals">
+            <ul className="case-goals">
+              {project.goals.map((goal) => (
+                <li key={goal}>{goal}</li>
+              ))}
+            </ul>
+          </CaseStudySection>
+        )}
+
+        {hasProcess && (
+          <CaseStudySection title="Design process">
+            <DesignProcessFlow process={project.process!} />
+            {hasMethods && (
+              <>
+                <p className="case-goals-label">Methods</p>
+                <TagList items={project.methodologies} />
+              </>
+            )}
+            {hasTools && (
+              <>
+                <p className="case-goals-label">Tools</p>
+                <TagList items={project.technologies} />
+              </>
+            )}
+          </CaseStudySection>
+        )}
+
+        {!hasProcess && hasMethods && (
           <CaseStudySection title="Design methodologies">
-            <ul className="tag-list">
-              {project.methodologies.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <TagList items={project.methodologies} />
           </CaseStudySection>
         )}
 
-        {byType(artifacts, "ux_artifact").length > 0 && (
-          <CaseStudySection title="UX artifacts">
-            <ArtifactGallery items={byType(artifacts, "ux_artifact")} />
+        {project.insight && (
+          <CaseStudySection title="Research insights">
+            <InsightMetrics insight={project.insight} />
           </CaseStudySection>
         )}
 
-        {project.technologies.length > 0 && (
+        {!project.insight && insights.length > 0 && (
+          <CaseStudySection title="Research insights">
+            <ArtifactGallery items={insights} />
+          </CaseStudySection>
+        )}
+
+        {project.benchmark && (
+          <CaseStudySection title="Competitive benchmark">
+            <BenchmarkTable benchmark={project.benchmark} />
+          </CaseStudySection>
+        )}
+
+        {project.journey && (
+          <CaseStudySection title="User journeys">
+            <UserJourneyMap journey={project.journey} />
+          </CaseStudySection>
+        )}
+
+        {!project.journey && journeys.length > 0 && (
+          <CaseStudySection title="User journeys">
+            <ArtifactGallery items={journeys} />
+          </CaseStudySection>
+        )}
+
+        {project.decisions && project.decisions.length > 0 && (
+          <CaseStudySection title="Design decisions">
+            <DesignDecisions decisions={project.decisions} />
+          </CaseStudySection>
+        )}
+
+        {drafts.length > 0 && (
+          <CaseStudySection title="Handmade drafts">
+            <ArtifactGallery items={drafts} />
+          </CaseStudySection>
+        )}
+
+        {flows.length > 0 && (
+          <CaseStudySection title="User flows">
+            <ArtifactGallery items={flows} />
+          </CaseStudySection>
+        )}
+
+        {lowFi.length > 0 && (
+          <CaseStudySection title="Low-fi mocks">
+            <ArtifactGallery items={lowFi} />
+          </CaseStudySection>
+        )}
+
+        {screens.length > 0 && (
+          <CaseStudySection title="Product screens">
+            <ProductScenes items={screens} />
+          </CaseStudySection>
+        )}
+
+        {!hasProcess && hasTools && (
           <CaseStudySection title="Technologies used">
-            <ul className="tag-list">
-              {project.technologies.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <TagList items={project.technologies} />
           </CaseStudySection>
         )}
 
@@ -99,39 +201,15 @@ export default async function CaseStudyPage({ params }: Props) {
           </CaseStudySection>
         )}
 
-        {byType(artifacts, "user_journey").length > 0 && (
-          <CaseStudySection title="User journeys">
-            <ArtifactGallery items={byType(artifacts, "user_journey")} />
-          </CaseStudySection>
-        )}
-
-        {byType(artifacts, "handmade_draft").length > 0 && (
-          <CaseStudySection title="Handmade initial drafts">
-            <ArtifactGallery items={byType(artifacts, "handmade_draft")} />
-          </CaseStudySection>
-        )}
-
-        {byType(artifacts, "user_flow").length > 0 && (
-          <CaseStudySection title="User flows">
-            <ArtifactGallery items={byType(artifacts, "user_flow")} />
-          </CaseStudySection>
-        )}
-
-        {byType(artifacts, "low_fi").length > 0 && (
-          <CaseStudySection title="Low-fi mocks">
-            <ArtifactGallery items={byType(artifacts, "low_fi")} />
-          </CaseStudySection>
-        )}
-
-        {byType(artifacts, "hi_fi").length > 0 && (
-          <CaseStudySection title="Hi-fi prototypes">
-            <ArtifactGallery items={byType(artifacts, "hi_fi")} />
-          </CaseStudySection>
-        )}
-
         {project.impact_metrics.length > 0 && (
-          <CaseStudySection title="Impacted metrics">
+          <CaseStudySection title="Impact">
             <MetricsRow metrics={project.impact_metrics} />
+          </CaseStudySection>
+        )}
+
+        {project.star && (
+          <CaseStudySection title="STAR case">
+            <StarCase star={project.star} />
           </CaseStudySection>
         )}
 

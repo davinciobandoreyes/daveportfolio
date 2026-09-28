@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 420" role="img" aria-labelledby="flowTitle flowDesc">
+  <title id="flowTitle">Close a task and plant coral on the reef</title>
+  <desc id="flowDesc">Todays tasks, check off, earn shells, optional daily bonus, shop, inventory, plant on My Reef, grid grows.</desc>
+  <rect width="1120" height="420" fill="#fafafa"/>
+  <style>
+    .box { fill: #fff; stroke: #ebebeb; }
+    .box-end { fill: #d3e5ff; stroke: #d3e5ff; }
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 600; fill: #171717; }
+    .sub { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; fill: #4d4d4d; }
+    .num { font-family: ui-monospace, monospace; font-size: 11px; fill: #888; }
+    .arrow { stroke: #a1a1a1; fill: none; stroke-width: 1.5; }
+    .head { fill: #a1a1a1; }
+  </style>
+
+  <!-- Row 1: finish work -->
+  <rect class="box" x="24" y="36" width="200" height="88" rx="10"/>
+  <text class="num" x="40" y="58">01</text>
+  <text class="label" x="40" y="82">Todays tasks</text>
+  <text class="sub" x="40" y="102">Priority, tags, repeats</text>
+
+  <path class="arrow" d="M224 80 H260"/>
+  <polygon class="head" points="260,76 270,80 260,84"/>
+
+  <rect class="box" x="270" y="36" width="200" height="88" rx="10"/>
+  <text class="num" x="286" y="58">02</text>
+  <text class="label" x="286" y="82">Check it off</text>
+  <text class="sub" x="286" y="102">Finish lands at once</text>
+
+  <path class="arrow" d="M470 80 H506"/>
+  <polygon class="head" points="506,76 516,80 506,84"/>
+
+  <rect class="box" x="516" y="36" width="200" height="88" rx="10"/>
+  <text class="num" x="532" y="58">03</text>
+  <text class="label" x="532" y="82">Earn shells</text>
+  <text class="sub" x="532" y="102">High pays more</text>
+
+  <path class="arrow" d="M716 80 H752"/>
+  <polygon class="head" points="752,76 762,80 752,84"/>
+
+  <rect class="box" x="762" y="36" width="334" height="88" rx="10"/>
+  <text class="num" x="778" y="58">04</text>
+  <text class="label" x="778" y="82">Clear the daily set</text>
+  <text class="sub" x="778" y="102">1 high · 3 medium · 5 low ’ +10 shells</text>
+
+  <!-- Connector down -->
+  <path class="arrow" d="M929 124 V168"/>
+  <polygon class="head" points="925,168 929,178 933,168"/>
+
+  <!-- Row 2: grow reef -->
+  <rect class="box" x="762" y="188" width="334" height="88" rx="10"/>
+  <text class="num" x="778" y="210">05</text>
+  <text class="label" x="778" y="234">Buy a coral</text>
+  <text class="sub" x="778" y="254">Shop · 30 to 150 shells</text>
+
+  <path class="arrow" d="M762 232 H726"/>
+  <polygon class="head" points="726,228 716,232 726,236"/>
+
+  <rect class="box" x="516" y="188" width="200" height="88" rx="10"/>
+  <text class="num" x="532" y="210">06</text>
+  <text class="label" x="532" y="234">Inventory</text>
+  <text class="sub" x="532" y="254">Piece waits to plant</text>
+
+  <path class="arrow" d="M516 232 H480"/>
+  <polygon class="head" points="480,228 470,232 480,236"/>
+
+  <rect class="box" x="270" y="188" width="200" height="88" rx="10"/>
+  <text class="num" x="286" y="210">07</text>
+  <text class="label" x="286" y="234">Plant on My Reef</text>
+  <text class="sub" x="286" y="254">Drag or tap onto the grid</text>
+
+  <path class="arrow" d="M270 232 H234"/>
+  <polygon class="head" points="234,228 224,232 234,236"/>
+
+  <rect class="box-end" x="24" y="188" width="200" height="88" rx="10"/>
+  <text class="num" x="40" y="210">08</text>
+  <text class="label" x="40" y="234">The reef grows</text>
+  <text class="sub" x="40" y="254">Expand 3×3 ’ 15×15</text>
+
+  <text class="sub" x="24" y="328">Same path on phone and desktop. Tomorrows repeats are waiting, and the garden is still there.</text>
+</svg>

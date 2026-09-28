@@ -4,12 +4,12 @@ export function MetricsRow({ metrics }: { metrics: ImpactMetric[] }) {
   if (!metrics.length) return null;
 
   return (
-    <ul className="metrics-row">
+    <ul className="case-card-grid">
       {metrics.map((metric) => (
         <li key={`${metric.label}-${metric.value}`}>
-          <p className="metric-value">{metric.value}</p>
-          <p className="metric-label">{metric.label}</p>
-          {metric.note && <p className="muted">{metric.note}</p>}
+          <p className="case-card-label">{metric.label}</p>
+          <p className="case-card-value">{metric.value}</p>
+          {metric.note && <p className="case-card-body">{metric.note}</p>}
         </li>
       ))}
     </ul>

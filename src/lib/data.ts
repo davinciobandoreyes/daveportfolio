@@ -47,7 +47,22 @@ export async function getProjects(): Promise<Project[]> {
     .order("sort", { ascending: true });
 
   if (error || !data?.length) return seedProjects.filter((p) => p.published);
-  return data as Project[];
+  const seedBySlug = Object.fromEntries(seedProjects.map((p) => [p.slug, p]));
+  return (data as Project[]).map((project) => {
+    const seeded = seedBySlug[project.slug];
+    return {
+      ...project,
+      process: project.process ?? seeded?.process ?? null,
+      goals: project.goals?.length ? project.goals : seeded?.goals ?? [],
+      decisions: project.decisions?.length
+        ? project.decisions
+        : seeded?.decisions ?? [],
+      benchmark: project.benchmark ?? seeded?.benchmark ?? null,
+      journey: project.journey ?? seeded?.journey ?? null,
+      insight: project.insight ?? seeded?.insight ?? null,
+      star: project.star ?? seeded?.star ?? null,
+    };
+  });
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
@@ -76,7 +91,14 @@ export async function getProjectArtifacts(
       .filter((a) => a.project_id === projectId)
       .sort((a, b) => a.sort - b.sort);
   }
-  return data as ProjectArtifact[];
+
+  const seedById = Object.fromEntries(seedArtifacts.map((a) => [a.id, a]));
+  return (data as ProjectArtifact[])
+    .map((artifact) => ({
+      ...artifact,
+      group: artifact.group ?? seedById[artifact.id]?.group ?? null,
+    }))
+    .sort((a, b) => a.sort - b.sort);
 }
 
 export async function getExperiences(): Promise<Experience[]> {

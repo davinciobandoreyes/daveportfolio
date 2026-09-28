@@ -41,6 +41,67 @@ export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
   ai: "AI",
 };
 
+export type StarCase = {
+  title: string;
+  situation: string;
+  task: string;
+  action: string;
+  result: string;
+};
+
+export type DesignDecision = {
+  title: string;
+  why: string;
+};
+
+export type BenchmarkMark = "strong" | "partial" | "none";
+
+export type BenchmarkRow = {
+  name: string;
+  highlight?: boolean;
+  marks: BenchmarkMark[];
+};
+
+export type Benchmark = {
+  lead: string;
+  criteria: string[];
+  rows: BenchmarkRow[];
+};
+
+export type UserJourneyStep = {
+  title: string;
+  emotion: string;
+  goal: string;
+  action: string;
+  opportunity: string;
+};
+
+export type UserJourney = {
+  title: string;
+  lead: string;
+  steps: UserJourneyStep[];
+};
+
+export type InsightTone = "violet" | "link" | "warning" | "cyan" | "mute";
+
+export type InsightSlice = {
+  label: string;
+  value: number;
+  tone: InsightTone;
+  emphasis?: boolean;
+};
+
+export type ResearchInsight = {
+  title: string;
+  lead: string;
+  insight: string;
+  compare: {
+    left: { value: string; label: string };
+    right: { value: string; label: string };
+  };
+  slices: InsightSlice[];
+};
+
 export type Project = {
   id: string;
   slug: string;
@@ -56,10 +117,34 @@ export type Project = {
   published: boolean;
   brief: string | null;
   problem: string | null;
+  goals?: string[];
   methodologies: string[];
   technologies: string[];
   leadership: string | null;
   impact_metrics: ImpactMetric[];
+  process?: DesignProcess | null;
+  decisions?: DesignDecision[];
+  benchmark?: Benchmark | null;
+  journey?: UserJourney | null;
+  insight?: ResearchInsight | null;
+  star?: StarCase | null;
+};
+
+export type DesignProcessStep = {
+  label: string;
+  emphasis?: boolean;
+};
+
+export type DesignProcessPhase = {
+  id: string;
+  title: string;
+  space: "problem" | "solution";
+  steps: DesignProcessStep[];
+};
+
+export type DesignProcess = {
+  lead: string;
+  phases: DesignProcessPhase[];
 };
 
 export type ArtifactType =
@@ -77,6 +162,7 @@ export type ProjectArtifact = {
   title: string;
   body: string | null;
   image_url: string | null;
+  group?: string | null;
   sort: number;
 };
 
