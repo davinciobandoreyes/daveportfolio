@@ -32,6 +32,7 @@ export function SiteNav() {
             <Link
               key={link.href}
               href={link.href}
+              data-track={link.href === "/#contact" ? "contact" : undefined}
               onClick={() => setOpen(false)}
             >
               {link.label}

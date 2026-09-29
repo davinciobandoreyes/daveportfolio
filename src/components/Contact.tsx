@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/track-client";
 import type { Profile } from "@/lib/types";
 import { ProfileLinks } from "./ProfileLinks";
 
@@ -26,6 +27,7 @@ export function Contact({ profile }: { profile: Profile }) {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Failed");
+      trackEvent("contact-submit");
       setStatus("ok");
       e.currentTarget.reset();
     } catch {

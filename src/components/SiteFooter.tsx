@@ -15,7 +15,7 @@ export function SiteFooter({ profile }: { profile: Profile }) {
         <div className="footer-links">
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
           <ProfileLinks links={profile.links} variant="inline" />
-          <Link href="/#contact">Contact</Link>
+          <Link href="/#contact" data-track="contact">Contact</Link>
         </div>
         <p className="footer-copy muted">
           © {new Date().getFullYear()} {profile.name}

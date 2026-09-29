@@ -46,7 +46,7 @@ export function Hero({ profile }: { profile: Profile }) {
               <a className="btn btn-primary" href="#work">
                 View my portfolio
               </a>
-              <a className="btn btn-secondary" href="#contact">
+              <a className="btn btn-secondary" href="#contact" data-track="contact">
                 Contact me
               </a>
             </div>
@@ -56,6 +56,7 @@ export function Hero({ profile }: { profile: Profile }) {
                 className="btn btn-ghost btn-with-icon"
                 href={profile.links.cv_path}
                 download
+                data-track="cv"
               >
                 <CvIcon className="link-icon" />
                 <span>Download my CV</span>
@@ -65,6 +66,7 @@ export function Hero({ profile }: { profile: Profile }) {
                 href={profile.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track="linkedin"
               >
                 <LinkedInIcon className="link-icon" />
                 <span>View my LinkedIn</span>
@@ -78,6 +80,7 @@ export function Hero({ profile }: { profile: Profile }) {
                 href={profile.links.behance}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track="behance"
               >
                 <BehanceIcon className="link-icon" />
                 <span>Behance</span>
@@ -87,6 +90,7 @@ export function Hero({ profile }: { profile: Profile }) {
                 href={profile.links.medium}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track="medium"
               >
                 <MediumIcon className="link-icon" />
                 <span>Medium</span>

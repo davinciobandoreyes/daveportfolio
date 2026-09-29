@@ -11,7 +11,7 @@ export function PrevNext({
   return (
     <nav className="prev-next" aria-label="Other projects">
       {prev ? (
-        <Link href={`/work/${prev.slug}`} className="prev-next-link">
+        <Link href={`/work/${prev.slug}`} className="prev-next-link" data-track="work-card">
           <span className="muted">Previous</span>
           <strong>{prev.title}</strong>
         </Link>
@@ -19,7 +19,7 @@ export function PrevNext({
         <span />
       )}
       {next ? (
-        <Link href={`/work/${next.slug}`} className="prev-next-link next">
+        <Link href={`/work/${next.slug}`} className="prev-next-link next" data-track="work-card">
           <span className="muted">Next</span>
           <strong>{next.title}</strong>
         </Link>

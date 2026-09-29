@@ -11,6 +11,13 @@ export type ImpactMetric = {
   note?: string;
 };
 
+export type Education = {
+  degree: string;
+  school: string;
+  years: string;
+  note: string;
+};
+
 export type Profile = {
   name: string;
   title: string;
@@ -20,6 +27,7 @@ export type Profile = {
   links: ProfileLinks;
   languages: string[];
   highlights?: ImpactMetric[];
+  education?: Education;
 };
 
 export type ProjectCategory =
@@ -163,6 +171,8 @@ export type ProjectArtifact = {
   body: string | null;
   image_url: string | null;
   group?: string | null;
+  /** Raw phone UI sits in a device frame. Boards that already include a device stay flat. */
+  device?: "iphone-16";
   sort: number;
 };
 

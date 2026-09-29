@@ -68,6 +68,7 @@ export function ProfileLinks({
             key={item.key}
             href={href}
             className={classNameForVariant}
+            data-track={item.key}
             {...(item.download ? { download: true } : {})}
             {...(item.external
               ? { target: "_blank", rel: "noopener noreferrer" }

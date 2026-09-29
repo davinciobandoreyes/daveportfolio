@@ -2583,6 +2583,7 @@ export const projectArtifacts: ProjectArtifact[] = [
     body: "The same list and daily-set dots, sized for a pocket — with a control to add the next task.",
     image_url: "/work/coral-todo/mobile-tasks.jpg",
     group: "Mobile",
+    device: "iphone-16",
     sort: 5,
   },
   {
@@ -2593,6 +2594,7 @@ export const projectArtifacts: ProjectArtifact[] = [
     body: "Same prices and expand-grid tile. A badge shows when she can afford a piece, or when inventory is waiting.",
     image_url: "/work/coral-todo/mobile-shop.jpg",
     group: "Mobile",
+    device: "iphone-16",
     sort: 6,
   },
   {
@@ -2603,6 +2605,7 @@ export const projectArtifacts: ProjectArtifact[] = [
     body: "Completions and minutes over 7, 15, or 30 days — the week without leaving the app.",
     image_url: "/work/coral-todo/mobile-reports.jpg",
     group: "Mobile",
+    device: "iphone-16",
     sort: 7,
   },
 ];

@@ -1,6 +1,6 @@
 import {
   certifications as seedCerts,
-  education,
+  education as seedEducation,
   experiences as seedExperiences,
   profile as seedProfile,
   projectArtifacts as seedArtifacts,
@@ -12,6 +12,7 @@ import {
 import { getSupabase } from "./supabase";
 import type {
   Certification,
+  Education,
   Experience,
   Profile,
   Project,
@@ -21,18 +22,67 @@ import type {
   Testimonial,
 } from "./types";
 
-export { education };
+const emptyEducation: Education = {
+  degree: "",
+  school: "",
+  years: "",
+  note: "",
+};
+
+function asEducation(value: unknown): Education {
+  if (!value || typeof value !== "object") return emptyEducation;
+  const record = value as Partial<Education>;
+  return {
+    degree: typeof record.degree === "string" ? record.degree : "",
+    school: typeof record.school === "string" ? record.school : "",
+    years: typeof record.years === "string" ? record.years : "",
+    note: typeof record.note === "string" ? record.note : "",
+  };
+}
+
+function seededProfile(): Profile {
+  return { ...seedProfile, education: seedEducation };
+}
+
+function normalizeProject(project: Project): Project {
+  return {
+    ...project,
+    categories: project.categories ?? [],
+    platforms: project.platforms ?? [],
+    methodologies: project.methodologies ?? [],
+    technologies: project.technologies ?? [],
+    goals: project.goals ?? [],
+    impact_metrics: project.impact_metrics ?? [],
+    decisions: project.decisions ?? [],
+    process: project.process ?? null,
+    benchmark: project.benchmark ?? null,
+    journey: project.journey ?? null,
+    insight: project.insight ?? null,
+    star: project.star ?? null,
+  };
+}
+
+function normalizeSkill(skill: Skill): Skill {
+  return {
+    ...skill,
+    level: Number(skill.level),
+    x: Number(skill.x),
+    y: Number(skill.y),
+    related_project_slugs: skill.related_project_slugs ?? [],
+  };
+}
 
 export async function getProfile(): Promise<Profile> {
   const supabase = getSupabase();
-  if (!supabase) return seedProfile;
+  if (!supabase) return seededProfile();
 
   const { data, error } = await supabase.from("profiles").select("*").limit(1).maybeSingle();
-  if (error || !data) return seedProfile;
-  const profile = data as Profile;
+  if (error || !data) return seededProfile();
+  const profile = data as Profile & { education?: unknown };
   return {
     ...profile,
-    highlights: profile.highlights?.length ? profile.highlights : seedProfile.highlights,
+    highlights: Array.isArray(profile.highlights) ? profile.highlights : [],
+    education: asEducation(profile.education),
   };
 }
 
@@ -47,22 +97,7 @@ export async function getProjects(): Promise<Project[]> {
     .order("sort", { ascending: true });
 
   if (error || !data?.length) return seedProjects.filter((p) => p.published);
-  const seedBySlug = Object.fromEntries(seedProjects.map((p) => [p.slug, p]));
-  return (data as Project[]).map((project) => {
-    const seeded = seedBySlug[project.slug];
-    return {
-      ...project,
-      process: project.process ?? seeded?.process ?? null,
-      goals: project.goals?.length ? project.goals : seeded?.goals ?? [],
-      decisions: project.decisions?.length
-        ? project.decisions
-        : seeded?.decisions ?? [],
-      benchmark: project.benchmark ?? seeded?.benchmark ?? null,
-      journey: project.journey ?? seeded?.journey ?? null,
-      insight: project.insight ?? seeded?.insight ?? null,
-      star: project.star ?? seeded?.star ?? null,
-    };
-  });
+  return (data as Project[]).map(normalizeProject);
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
@@ -92,11 +127,10 @@ export async function getProjectArtifacts(
       .sort((a, b) => a.sort - b.sort);
   }
 
-  const seedById = Object.fromEntries(seedArtifacts.map((a) => [a.id, a]));
   return (data as ProjectArtifact[])
     .map((artifact) => ({
       ...artifact,
-      group: artifact.group ?? seedById[artifact.id]?.group ?? null,
+      group: artifact.group ?? null,
     }))
     .sort((a, b) => a.sort - b.sort);
 }
@@ -131,8 +165,8 @@ export async function getSkills(): Promise<{
   }
 
   return {
-    skills: skillsRes.data as Skill[],
-    edges: (edgesRes.data as SkillEdge[]) ?? seedEdges,
+    skills: (skillsRes.data as Skill[]).map(normalizeSkill),
+    edges: edgesRes.error ? [] : ((edgesRes.data as SkillEdge[]) ?? []),
   };
 }
 

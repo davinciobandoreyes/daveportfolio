@@ -6,7 +6,6 @@ import { Skills } from "@/components/Skills";
 import { Testimonials } from "@/components/Testimonials";
 import { WorkList } from "@/components/WorkList";
 import {
-  education,
   getCertifications,
   getExperiences,
   getProfile,
@@ -36,7 +35,14 @@ export default async function HomePage() {
       <About
         profile={profile}
         certifications={certifications}
-        education={education}
+        education={
+          profile.education ?? {
+            degree: "",
+            school: "",
+            years: "",
+            note: "",
+          }
+        }
       />
       <Contact profile={profile} />
     </>

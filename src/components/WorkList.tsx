@@ -68,6 +68,7 @@ export function WorkList({ projects }: { projects: Project[] }) {
               <li key={project.id}>
                 <Link
                   href={`/work/${project.slug}`}
+                  data-track="work-card"
                   className={`work-card${primary ? ` work-card-${primary}` : ""}`}
                 >
                   <div className="work-thumb">
