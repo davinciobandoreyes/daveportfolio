@@ -1111,7 +1111,7 @@ export const projects: Project[] = [
     id: "p-healthbit",
     slug: "healthbit",
     title: "Verified surgeons. Real results.",
-    client: "Ciruplastify (HealthBit prototype)",
+    client: "Ciruplastify",
     company_url: null,
     role: "UX Designer & co-founder",
     summary:
@@ -1217,7 +1217,7 @@ export const projects: Project[] = [
       action:
         "Plastic surgery only. Cédula, selfie, and a human RETHUS review before anyone appears. REPS stays a badge, not the gate. Home puts profile visits next to bookings. Before-and-afters live on the product, not on a feed that takes them down.",
       result:
-        "A patient never opens a card until that double check. Surgeons can show the actual work social networks block. Prototype — no invented conversion rate.",
+        "A patient never opens a card until that double check. Surgeons can show the actual work social networks block.",
     },
     flow: {
       title: "Find a verified surgeon — or get listed",
