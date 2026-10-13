@@ -461,8 +461,8 @@ export const doubleDiamondProcess: DesignProcess = {
 
 export const profile: Profile = {
   name: "David Obando Reyes",
-  title: "Senior UX/UI Designer & Product Manager",
-  bio: "Senior Product Designer and Product Manager with a track record of designing, developing, and launching digital products. Skilled in agentic AI-assisted workflows, UX and product design, product strategy, and roadmap planning — leading design and developer teams through the end-to-end product lifecycle.",
+  title: "UX Engineer / Product Engineer",
+  bio: "I turn complex product problems into intuitive, production-ready digital experiences. With nearly 12 years across UX design, product strategy, and product management, I bridge design and engineering to take products from discovery to implementation. I combine deep UX expertise with hands-on development and agentic AI workflows to prototype faster, validate ideas, and ship better products for companies around the world.",
   email: "davidobandoreyes@gmail.com",
   location: "Colombia",
   links: {

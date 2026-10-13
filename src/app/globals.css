@@ -886,6 +886,7 @@ ol {
 
 .work-thumb-img {
   object-fit: cover;
+  object-position: center top;
   transition: transform 280ms ease;
 }
 
