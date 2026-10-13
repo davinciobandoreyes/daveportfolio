@@ -1110,12 +1110,12 @@ export const projects: Project[] = [
   {
     id: "p-healthbit",
     slug: "healthbit",
-    title: "Verified doctors. Real trust.",
+    title: "Verified surgeons. Real results.",
     client: "Ciruplastify (HealthBit prototype)",
     company_url: null,
     role: "UX Designer & co-founder",
     summary:
-      "A Colombian directory where a patient only sees doctors whose RETHUS a super admin has approved — and who are not paused.",
+      "A Colombian directory of verified plastic surgeons, featuring a trusted verification badge, a dedicated space to showcase clinical before-and-after results, and tools to connect surgeons with potential patients.",
     categories: ["healthtech"],
     platforms: ["Web", "Mobile"],
     cover_url: "/work/healthbit.jpg",
@@ -1135,14 +1135,19 @@ export const projects: Project[] = [
     leadership: null,
     impact_metrics: [
       {
-        label: "Identity before the listing",
+        label: "Before a surgeon appears",
         value: "Double check",
-        note: "Biometric ID plus a human RETHUS review before a doctor appears.",
+        note: "ID plus selfie, then a person reads RETHUS. No invented API match.",
+      },
+      {
+        label: "Clinical before-and-afters",
+        value: "Stay up",
+        note: "Results live on Ciruplastify. No adult-content takedown from Instagram or the rest.",
       },
       {
         label: "Plastic surgeons only",
         value: "Closed list",
-        note: "An exclusive network — listed after that review, not a general-doctor marketplace.",
+        note: "Listed after that review — not a general-doctor marketplace.",
       },
     ],
     decisions: [
@@ -1205,14 +1210,57 @@ export const projects: Project[] = [
       ],
     },
     star: {
-      title: "Make only verified plastic surgeons listable",
+      title: "List the real surgeons — and let them show the work",
       situation:
-        "Patients in Colombia hunt Instagram clinics. Public RETHUS cannot confirm a person by ID. Press documents credential-fraud cases; INML and ISAPS document the scale of aesthetic surgery and procedure-related deaths — context, not a fake-surgeon victim count.",
-      task: "Design a directory that only lists plastic surgeons who passed a human review, and give those doctors a reason to join.",
+        "Patients in Colombia hunt Instagram clinics. Public RETHUS cannot match a face to an ID. Instagram’s adult-content rules also strip clinical before-and-afters, so even honest surgeons look like lifestyle accounts.",
+      task: "Build a directory that only lists plastic surgeons a person has checked — and give those surgeons a place to post real results.",
       action:
-        "Narrowed the product to plastic surgery. Categories first, then the procedure. Asked for cédula, RETHUS, ID, and a selfie, then a human admin review. Kept the network closed until that double check. Gave doctors a home that puts profile visits next to bookings.",
+        "Plastic surgery only. Cédula, selfie, and a human RETHUS review before anyone appears. REPS stays a badge, not the gate. Home puts profile visits next to bookings. Before-and-afters live on the product, not on a feed that takes them down.",
       result:
-        "A patient never sees a doctor until biometric ID and a human RETHUS review both pass. Doctors see demand as visits versus appointments. Prototype — no invented conversion rate.",
+        "A patient never opens a card until that double check. Surgeons can show the actual work social networks block. Prototype — no invented conversion rate.",
+    },
+    flow: {
+      title: "Find a verified surgeon — or get listed",
+      lead: "Two paths, one gate. A patient only opens a profile after a person on the team approves RETHUS. A surgeon can finish onboarding and use the portal while that review is pending.",
+      lanes: [
+        {
+          title: "Patient",
+          steps: [
+            { label: "Directory", detail: "Plastic surgeons only" },
+            { label: "Search", detail: "Name, city, or cédula" },
+            {
+              label: "Listed?",
+              kind: "decision",
+              detail: "RETHUS approved, not paused",
+              branch: { label: "No listing", detail: "Demo panel. No profile." },
+            },
+            { label: "Profile", detail: "Verification and reviews" },
+            { label: "Book in person", kind: "end", detail: "Demo code HB-######" },
+          ],
+        },
+        {
+          title: "Surgeon",
+          steps: [
+            { label: "Cédula + RETHUS", detail: "A person reads the registry" },
+            { label: "ID + selfie", detail: "Face against the document" },
+            { label: "Portal", detail: "Patients and visits while pending" },
+            { label: "REPS badge", detail: "A seal. Not the search gate." },
+          ],
+        },
+        {
+          title: "Admin",
+          steps: [
+            { label: "RETHUS queue", detail: "Approve, reject, or pause" },
+            {
+              label: "Approve?",
+              kind: "decision",
+              detail: "The only search gate",
+              branch: { label: "Stay hidden", detail: "Rejected or paused" },
+            },
+            { label: "Listed", kind: "end", detail: "The patient can open the card" },
+          ],
+        },
+      ],
     },
   },
   {
@@ -2710,8 +2758,8 @@ export const projectArtifacts: ProjectArtifact[] = [
     id: "a-healthbit-flow",
     project_id: "p-healthbit",
     type: "user_flow",
-    title: "Find a verified doctor — or become listable",
-    body: "Patient: directory, search on Buscar or Enter, open a card, book an in-person visit (demo code HB-######). A three-character miss shows a demo RETHUS panel and never a profile. Doctor: RETHUS (human, no API), REPS (badge only), ID, selfie, optional degrees — hidden from search until an @healthbit.co admin approves RETHUS.",
+    title: "Find a verified surgeon — or get listed",
+    body: "Patient, surgeon, and admin. The directory only opens a profile after a person on the team approves RETHUS. REPS is a badge, not the gate.",
     image_url: "/work/healthbit/find-book-flow.svg",
     sort: 0,
   },

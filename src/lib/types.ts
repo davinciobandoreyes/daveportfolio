@@ -90,6 +90,31 @@ export type UserJourney = {
   steps: UserJourneyStep[];
 };
 
+export type UserFlowNodeKind = "process" | "decision" | "end";
+
+export type UserFlowBranch = {
+  label: string;
+  detail?: string;
+};
+
+export type UserFlowNode = {
+  label: string;
+  detail?: string;
+  kind?: UserFlowNodeKind;
+  branch?: UserFlowBranch;
+};
+
+export type UserFlowLane = {
+  title: string;
+  steps: UserFlowNode[];
+};
+
+export type UserFlow = {
+  title: string;
+  lead: string;
+  lanes: UserFlowLane[];
+};
+
 export type InsightTone = "violet" | "link" | "warning" | "cyan" | "mute";
 
 export type InsightSlice = {
@@ -134,6 +159,7 @@ export type Project = {
   decisions?: DesignDecision[];
   benchmark?: Benchmark | null;
   journey?: UserJourney | null;
+  flow?: UserFlow | null;
   insight?: ResearchInsight | null;
   star?: StarCase | null;
 };

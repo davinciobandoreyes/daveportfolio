@@ -57,6 +57,7 @@ function normalizeProject(project: Project): Project {
     process: project.process ?? null,
     benchmark: project.benchmark ?? null,
     journey: project.journey ?? null,
+    flow: project.flow ?? null,
     insight: project.insight ?? null,
     star: project.star ?? null,
   };

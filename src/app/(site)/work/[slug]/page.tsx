@@ -11,6 +11,7 @@ import { DesignDecisions } from "@/components/case-study/DesignDecisions";
 import { StarCase } from "@/components/case-study/StarCase";
 import { InsightMetrics } from "@/components/case-study/InsightMetrics";
 import { ProductScenes } from "@/components/case-study/ProductScenes";
+import { UserFlowChart } from "@/components/case-study/UserFlowChart";
 import { UserJourneyMap } from "@/components/case-study/UserJourneyMap";
 import {
   getProjectArtifacts,
@@ -175,7 +176,13 @@ export default async function CaseStudyPage({ params }: Props) {
           </CaseStudySection>
         )}
 
-        {flows.length > 0 && (
+        {project.flow && (
+          <CaseStudySection title="User flows">
+            <UserFlowChart flow={project.flow} />
+          </CaseStudySection>
+        )}
+
+        {!project.flow && flows.length > 0 && (
           <CaseStudySection title="User flows">
             <ArtifactGallery items={flows} />
           </CaseStudySection>

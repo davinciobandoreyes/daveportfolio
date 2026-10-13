@@ -1,11 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" role="img" aria-labelledby="hbTitle hbDesc">
-  <title id="hbTitle">Find a verified doctor and become listable</title>
-  <desc id="hbDesc">Patient: directory, search, profile, book. Doctor: RETHUS review, REPS, ID, selfie, hidden from search until an admin approves RETHUS.</desc>
-  <rect width="1120" height="520" fill="#fafafa"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 720" role="img" aria-labelledby="hbTitle hbDesc">
+  <title id="hbTitle">Find a verified surgeon or get listed</title>
+  <desc id="hbDesc">Patient searches the directory and books only if the surgeon is listed. Surgeon submits cédula, RETHUS, and a selfie. Admin is the only search gate.</desc>
+  <rect width="1120" height="720" fill="#fafafa"/>
   <style>
+    .lane { fill: none; stroke: #ebebeb; }
     .box { fill: #fff; stroke: #ebebeb; }
+    .box-if { fill: #fff; stroke: #171717; }
     .box-end { fill: #d3e5ff; stroke: #d3e5ff; }
-    .kicker { font-family: ui-monospace, monospace; font-size: 11px; fill: #888; }
+    .kicker { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; fill: #888; }
     .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 600; fill: #171717; }
     .sub { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; fill: #4d4d4d; }
     .arrow { stroke: #a1a1a1; fill: none; stroke-width: 1.5; }
@@ -13,69 +15,103 @@
   </style>
 
   <text class="kicker" x="24" y="28">PATIENT</text>
+  <rect class="lane" x="16" y="36" width="1088" height="200" rx="10"/>
 
-  <rect class="box" x="24" y="44" width="196" height="80" rx="10"/>
-  <text class="label" x="40" y="78">Directory</text>
-  <text class="sub" x="40" y="98">Verified-doctors hero</text>
+  <rect class="box" x="32" y="56" width="168" height="72" rx="8"/>
+  <text class="label" x="44" y="86">Directory</text>
+  <text class="sub" x="44" y="106">Plastic surgeons only</text>
 
-  <path class="arrow" d="M220 84 H248"/>
-  <polygon class="head" points="248,80 258,84 248,88"/>
+  <path class="arrow" d="M200 92 H224"/>
+  <polygon class="head" points="224,88 234,92 224,96"/>
 
-  <rect class="box" x="258" y="44" width="196" height="80" rx="10"/>
-  <text class="label" x="274" y="78">Search</text>
-  <text class="sub" x="274" y="98">Name + Buscar / Enter</text>
+  <rect class="box" x="234" y="56" width="168" height="72" rx="8"/>
+  <text class="label" x="246" y="86">Search</text>
+  <text class="sub" x="246" y="106">Name, city, or cédula</text>
 
-  <path class="arrow" d="M454 84 H482"/>
-  <polygon class="head" points="482,80 492,84 482,88"/>
+  <path class="arrow" d="M402 92 H426"/>
+  <polygon class="head" points="426,88 436,92 426,96"/>
 
-  <rect class="box" x="492" y="44" width="196" height="80" rx="10"/>
-  <text class="label" x="508" y="78">Open a card</text>
-  <text class="sub" x="508" y="98">Public profile</text>
+  <rect class="box-if" x="436" y="56" width="168" height="72" rx="8"/>
+  <text class="kicker" x="448" y="76">IF</text>
+  <text class="label" x="448" y="96">Listed?</text>
+  <text class="sub" x="448" y="114">RETHUS approved</text>
 
-  <path class="arrow" d="M688 84 H716"/>
-  <polygon class="head" points="716,80 726,84 716,88"/>
+  <path class="arrow" d="M604 92 H628"/>
+  <polygon class="head" points="628,88 638,92 628,96"/>
 
-  <rect class="box-end" x="726" y="44" width="370" height="80" rx="10"/>
-  <text class="label" x="742" y="78">Book in person</text>
-  <text class="sub" x="742" y="98">Sticky agenda / mobile sheet · demo HB-######</text>
+  <rect class="box" x="638" y="56" width="168" height="72" rx="8"/>
+  <text class="label" x="650" y="86">Profile</text>
+  <text class="sub" x="650" y="106">Verification, reviews</text>
 
-  <text class="sub" x="24" y="150">No match on 3+ characters: a demo RETHUS panel (not listed / listed enabled / listed not enabled). No profile. Discarded on reload.</text>
-  <text class="sub" x="24" y="170">REPS seal only if REPS was accepted. WhatsApp is a separate icon. Typing alone does not filter.</text>
+  <path class="arrow" d="M806 92 H830"/>
+  <polygon class="head" points="830,88 840,92 830,96"/>
 
-  <text class="kicker" x="24" y="214">DOCTOR</text>
+  <rect class="box-end" x="840" y="56" width="240" height="72" rx="8"/>
+  <text class="label" x="852" y="86">Book in person</text>
+  <text class="sub" x="852" y="106">Demo code HB-######</text>
 
-  <rect class="box" x="24" y="230" width="168" height="80" rx="10"/>
-  <text class="label" x="40" y="264">RETHUS</text>
-  <text class="sub" x="40" y="284">Human review · no API</text>
+  <path class="arrow" d="M520 128 V156"/>
+  <polygon class="head" points="516,156 520,166 524,156"/>
+  <text class="kicker" x="530" y="152">NO</text>
+  <rect class="box-end" x="436" y="168" width="168" height="56" rx="8"/>
+  <text class="label" x="448" y="192">No listing</text>
+  <text class="sub" x="448" y="210">Demo panel. No profile.</text>
 
-  <path class="arrow" d="M192 270 H214"/>
-  <polygon class="head" points="214,266 224,270 214,274"/>
+  <text class="kicker" x="24" y="260">SURGEON</text>
+  <rect class="lane" x="16" y="268" width="1088" height="120" rx="10"/>
 
-  <rect class="box" x="224" y="230" width="168" height="80" rx="10"/>
-  <text class="label" x="240" y="264">REPS</text>
-  <text class="sub" x="240" y="284">Badge · not a search gate</text>
+  <rect class="box" x="32" y="288" width="200" height="80" rx="8"/>
+  <text class="label" x="44" y="320">Cédula + RETHUS</text>
+  <text class="sub" x="44" y="340">A person reads the registry</text>
 
-  <path class="arrow" d="M392 270 H414"/>
-  <polygon class="head" points="414,266 424,270 414,274"/>
+  <path class="arrow" d="M232 328 H256"/>
+  <polygon class="head" points="256,324 266,328 256,332"/>
 
-  <rect class="box" x="424" y="230" width="168" height="80" rx="10"/>
-  <text class="label" x="440" y="264">ID + selfie</text>
-  <text class="sub" x="440" y="284">Front, back, photo</text>
+  <rect class="box" x="266" y="288" width="200" height="80" rx="8"/>
+  <text class="label" x="278" y="320">ID + selfie</text>
+  <text class="sub" x="278" y="340">Face against the document</text>
 
-  <path class="arrow" d="M592 270 H614"/>
-  <polygon class="head" points="614,266 624,270 614,274"/>
+  <path class="arrow" d="M466 328 H490"/>
+  <polygon class="head" points="490,324 500,328 490,332"/>
 
-  <rect class="box" x="624" y="230" width="168" height="80" rx="10"/>
-  <text class="label" x="640" y="264">Degrees</text>
-  <text class="sub" x="640" y="284">Optional · not Gemini</text>
+  <rect class="box" x="500" y="288" width="200" height="80" rx="8"/>
+  <text class="label" x="512" y="320">Portal</text>
+  <text class="sub" x="512" y="340">Works while pending</text>
 
-  <path class="arrow" d="M792 270 H814"/>
-  <polygon class="head" points="814,266 824,270 814,274"/>
+  <path class="arrow" d="M700 328 H724"/>
+  <polygon class="head" points="724,324 734,328 724,332"/>
 
-  <rect class="box-end" x="824" y="230" width="272" height="80" rx="10"/>
-  <text class="label" x="840" y="264">Hidden from search</text>
-  <text class="sub" x="840" y="284">Until @healthbit.co approves RETHUS</text>
+  <rect class="box" x="734" y="288" width="346" height="80" rx="8"/>
+  <text class="label" x="746" y="320">REPS badge</text>
+  <text class="sub" x="746" y="340">A seal. Not the search gate.</text>
 
-  <text class="sub" x="24" y="348">The doctor can keep working in the portal while RETHUS is pending. Pause or a rejected RETHUS keeps them out of the directory.</text>
-  <text class="sub" x="24" y="368">Approved, unpaused RETHUS is the only search gate. REPS is a separate human review.</text>
+  <text class="kicker" x="24" y="416">ADMIN</text>
+  <rect class="lane" x="16" y="424" width="1088" height="200" rx="10"/>
+
+  <rect class="box" x="32" y="444" width="220" height="80" rx="8"/>
+  <text class="label" x="44" y="476">RETHUS queue</text>
+  <text class="sub" x="44" y="496">Approve, reject, or pause</text>
+
+  <path class="arrow" d="M252 484 H276"/>
+  <polygon class="head" points="276,480 286,484 276,488"/>
+
+  <rect class="box-if" x="286" y="444" width="200" height="80" rx="8"/>
+  <text class="kicker" x="298" y="464">IF</text>
+  <text class="label" x="298" y="484">Approve?</text>
+  <text class="sub" x="298" y="502">The only search gate</text>
+
+  <path class="arrow" d="M486 484 H510"/>
+  <polygon class="head" points="510,480 520,484 510,488"/>
+
+  <rect class="box-end" x="520" y="444" width="280" height="80" rx="8"/>
+  <text class="label" x="532" y="476">Listed</text>
+  <text class="sub" x="532" y="496">The patient can open the card</text>
+
+  <path class="arrow" d="M386 524 V552"/>
+  <polygon class="head" points="382,552 386,562 390,552"/>
+  <text class="kicker" x="396" y="548">NO</text>
+  <rect class="box-end" x="286" y="564" width="200" height="48" rx="8"/>
+  <text class="label" x="298" y="594">Stay hidden</text>
+
+  <text class="sub" x="24" y="654">Approved, unpaused RETHUS is the only search gate. REPS does not open the directory.</text>
 </svg>
