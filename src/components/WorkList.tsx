@@ -28,8 +28,15 @@ export function WorkList({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<"all" | ProjectCategory>("all");
 
   const visible = useMemo(() => {
-    if (filter === "all") return projects;
-    return projects.filter((p) => p.categories.includes(filter));
+    const list =
+      filter === "all"
+        ? [...projects]
+        : projects.filter((p) => p.categories.includes(filter));
+    if (filter !== "all") return list;
+    return list.sort((a, b) => {
+      if (b.year_end !== a.year_end) return b.year_end - a.year_end;
+      return a.sort - b.sort;
+    });
   }, [filter, projects]);
 
   return (
@@ -91,6 +98,9 @@ export function WorkList({ projects }: { projects: Project[] }) {
                   <div className="work-card-body">
                     <div className="work-meta">
                       <span className="work-client">{project.client}</span>
+                      {project.years ? (
+                        <span className="work-years">{project.years}</span>
+                      ) : null}
                       <span className="work-category">{labels}</span>
                     </div>
                     <h3>{project.title}</h3>

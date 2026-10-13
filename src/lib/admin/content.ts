@@ -150,6 +150,8 @@ export async function ensureSeeded() {
     cover_url: project.cover_url,
     sort: project.sort,
     published: project.published,
+    years: project.years ?? "",
+    year_end: project.year_end ?? 0,
     brief: project.brief,
     problem: project.problem,
     goals: project.goals ?? [],

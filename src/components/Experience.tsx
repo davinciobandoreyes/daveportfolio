@@ -7,7 +7,7 @@ export function Experience({ items }: { items: ExperienceType[] }) {
         <div className="section-head">
           <h2>Experience</h2>
           <p className="section-lead">
-            Product and UX roles across learning, games, fintech, and automotive.
+            Product and UX roles across fintech, learning, games, and automotive.
           </p>
         </div>
         <ol className="experience-list">

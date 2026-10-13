@@ -21,6 +21,9 @@ function stubProject({
   sort,
   summary,
   process,
+  published = true,
+  years = "",
+  year_end = 0,
 }: {
   id: string;
   slug: string;
@@ -31,6 +34,9 @@ function stubProject({
   sort: number;
   summary: string;
   process?: DesignProcess | null;
+  published?: boolean;
+  years?: string;
+  year_end?: number;
 }): Project {
   return {
     id,
@@ -44,7 +50,9 @@ function stubProject({
     company_url: null,
     role: "UX Designer",
     platforms: [],
-    published: true,
+    published,
+    years,
+    year_end,
     brief: null,
     problem: null,
     methodologies: [],
@@ -453,10 +461,10 @@ export const doubleDiamondProcess: DesignProcess = {
 
 export const profile: Profile = {
   name: "David Obando Reyes",
-  title: "UX Engineer",
-  bio: "Senior UX/UI & Product Designer crafting digital products end-to-end—from research and strategy to interaction design, design systems, and AI-powered experiences. Exploring how agentic AI can transform the way we design, build, and use digital products. Based in Cali, Colombia.",
-  email: "davinciobandoreyes@gmail.com",
-  location: "Cali, Valle del Cauca, Colombia",
+  title: "Senior UX/UI Designer & Product Manager",
+  bio: "Senior Product Designer and Product Manager with a track record of designing, developing, and launching digital products. Skilled in agentic AI-assisted workflows, UX and product design, product strategy, and roadmap planning — leading design and developer teams through the end-to-end product lifecycle.",
+  email: "davidobandoreyes@gmail.com",
+  location: "Colombia",
   links: {
     linkedin: "https://www.linkedin.com/in/davidobandor/",
     cv_path: "/david-obando-reyes-cv.pdf",
@@ -464,15 +472,11 @@ export const profile: Profile = {
     medium:
       "https://medium.com/@davinciobandoreyes/from-laid-off-to-landing-interviews-a-product-designers-playbook-for-2026-7b04b65c60fe",
   },
-  languages: [
-    "Spanish (Native)",
-    "English (Advanced / Bilingual)",
-    "Japanese (Basic)",
-  ],
+  languages: ["Spanish (Native)", "English (Advanced)"],
   highlights: [
-    { value: "10+", label: "Years of experience" },
+    { value: "12+", label: "Years of experience" },
     { value: "6+", label: "Industries" },
-    { value: "Multi-disciplinary", label: "Product Manager, gamification, and Ai product design" },
+    { value: "Multi-disciplinary", label: "Product Manager, gamification, and AI product design" },
   ],
 };
 
@@ -491,6 +495,8 @@ export const projects: Project[] = [
     cover_url: "/work/yourway.jpg",
     sort: 1,
     published: true,
+    years: "2025–2026",
+    year_end: 2026,
     brief:
       "Owned end-to-end UX and product for teacher web, classroom app, and student-facing activities at Yourway Learning. Used an agentic AI design workflow — Figma, Claude Design, and Cursor — to move from research to high-fidelity prototypes while keeping teachers in control of generated content.",
     problem:
@@ -711,6 +717,8 @@ export const projects: Project[] = [
     cover_url: "/work/everglades.jpg",
     sort: 2,
     published: true,
+    years: "2022",
+    year_end: 2022,
     brief:
       "Designed the visitor-facing mobile experience for Everglades Safari AR, a free education app for Losner Park in Homestead, Florida. The work sat with Before It's Too Late (BITL) — a Miami nonprofit arts collective — in collaboration with The Everglades Foundation, sponsored by the City of Homestead. The safari lives in downtown Homestead, the Gateway to Everglades and Biscayne National Parks, so families can meet the ecosystem without first traveling into the park.",
     problem:
@@ -841,6 +849,8 @@ export const projects: Project[] = [
     cover_url: "/work/comed.jpg",
     sort: 3,
     published: true,
+    years: "2022",
+    year_end: 2022,
     brief:
       "Designed a connected, resilient, and sustainable app experience for Bronzeville — a ComEd AR mural that lets people build a city of the future on the ground and learn climate change through renewable energy.",
     problem:
@@ -958,6 +968,8 @@ export const projects: Project[] = [
     cover_url: "/work/sympt.jpg",
     sort: 4,
     published: true,
+    years: "2021",
+    year_end: 2021,
     brief:
       "Designed Sympt, a mobile product that generates a prescription from the user's current symptoms and puts them in a direct chat with medical help. Built the research, journeys, hi-fi flows, and a design system so the company could keep one look across the product.",
     problem:
@@ -1106,6 +1118,7 @@ export const projects: Project[] = [
     cover_url: null,
     sort: 5,
     summary: "Health-tech and AI-assisted product UX for MyPearl Flow.",
+    published: false,
   }),
   {
     id: "p-healthbit",
@@ -1121,6 +1134,8 @@ export const projects: Project[] = [
     cover_url: "/work/healthbit.jpg",
     sort: 6,
     published: true,
+    years: "2026",
+    year_end: 2026,
     brief:
       "Ciruplastify is a healthtech startup I am building with my wife, María Camila González, a plastic surgeon, to cut fake plastic-surgeon credentials in Colombia. Patients find verified specialists. Surgeons get a dedicated place to show their work — including before-and-after photos — and to reach people who are looking. The current HealthBit demo is a directory, seven-step surgeon onboarding, a practice portal, and admin review of RETHUS and REPS.",
     problem:
@@ -1277,6 +1292,8 @@ export const projects: Project[] = [
     cover_url: "/work/wargo.jpg",
     sort: 7,
     published: true,
+    years: "2019",
+    year_end: 2019,
     brief:
       "Designed Wargo, a monthly membership app that gives people unlimited access to hundreds of gyms in Latin America. Research produced a traveler persona and a find-a-gym journey; the MVP covered nearby search, memberships, gym profiles, healthy meals, and a web search.",
     problem:
@@ -1390,6 +1407,8 @@ export const projects: Project[] = [
     cover_url: "/work/budgee.jpg",
     sort: 8,
     published: true,
+    years: "2021",
+    year_end: 2021,
     brief:
       "Designed Budgee, a personal-finance product so people can keep everyday expenses on budget. Research produced two personas and a monthly-budget journey; the MVP covered account creation, a bank-synced wallet, budgets, saving goals, and a balance view — then hi-fi for mobile and web.",
     problem:
@@ -1496,6 +1515,8 @@ export const projects: Project[] = [
     sort: 9,
     summary: "Fintech UX and use-case design for Bankee.",
     process: doubleDiamondProcess,
+    years: "2026",
+    year_end: 2026,
   }),
   {
     id: "p-mibanco",
@@ -1511,6 +1532,8 @@ export const projects: Project[] = [
     cover_url: "/work/mibanco.jpg",
     sort: 10,
     published: true,
+    years: "2021",
+    year_end: 2021,
     brief:
       "Designed the MiBanco app so people who need a microloan can get it digitally in less than one day. The product sits with the sales desk — simulate, validate, and confirm a disbursement without sending the client back to a branch.",
     problem:
@@ -1630,6 +1653,7 @@ export const projects: Project[] = [
     cover_url: null,
     sort: 11,
     summary: "UX improvement for Fortnite preset flows across platforms.",
+    published: false,
   }),
   {
     id: "p-fortnite",
@@ -1651,6 +1675,8 @@ export const projects: Project[] = [
     cover_url: "/work/fortnite-locker.jpg",
     sort: 12,
     published: true,
+    years: "2023–2025",
+    year_end: 2025,
     brief:
       "Redesign the in-game Locker experience for Fortnite players across multiple interaction environments.",
     problem:
@@ -1691,6 +1717,8 @@ export const projects: Project[] = [
     cover_url: "/work/pokemon-unite-cover.jpg",
     sort: 13,
     published: true,
+    years: "2023",
+    year_end: 2023,
     brief:
       "Academic case, 2022 — a challenge to help trainers get into battle easier and faster through the UI. Pokémon Unite is a free-to-play MOBA from TiMi Studio Group, published by The Pokémon Company on Android and iOS and by Nintendo on Switch. Design Thinking, then a simpler main menu and a score on the battle screen.",
     problem:
@@ -1813,6 +1841,8 @@ export const projects: Project[] = [
     cover_url: "/work/truckers-networks.jpg",
     sort: 14,
     published: true,
+    years: "2022–2023",
+    year_end: 2023,
     brief:
       "Designed Truckers Networks so drivers can find and apply for Class A work from the phone, and so companies can post a job — and pay for reach — on the web. The work covered the apply flow, activity, CDL practice, and a job add-on system.",
     problem:
@@ -1951,6 +1981,8 @@ export const projects: Project[] = [
     cover_url: "/work/notiplac.jpg",
     sort: 15,
     published: true,
+    years: "2015–2019",
+    year_end: 2019,
     brief:
       "Led UX for Notiplac, an intelligent marketplace that connects car owners with auto-repair centers. Owners see what the car needs; shops manage bookings and send status from a web desk.",
     problem:
@@ -2094,7 +2126,9 @@ export const projects: Project[] = [
     cover_url: "/work/coral-todo.jpg",
     sort: 16,
     published: true,
-    brief:
+    years: "2025",
+    year_end: 2025,
+     brief:
       "Coral Todo turns a to-do list into a reef you can stand in. Close a task, earn shells, buy coral, plant it on a grid that starts at 3×3, and read the week in Reports. The five sections already in the app are the whole loop.",
     problem:
       "A list remembers the intention and rarely rewards the finish. In 21,655 one-off tasks, 36% were completed; the rest sat a median of 56 days past the day they were planned. Checking a box leaves nothing behind — and productivity apps are near 4% retained by day 30, before a habit has time to form.",
@@ -2225,6 +2259,8 @@ export const projects: Project[] = [
     cover_url: null,
     sort: 99,
     published: false,
+    years: "",
+    year_end: 0,
     brief:
       "Design driver and instructor experiences for an automotive academy product suite.",
     problem:
@@ -2838,53 +2874,67 @@ export const projectArtifacts: ProjectArtifact[] = [
 export const experiences: Experience[] = [
   {
     id: "e1",
-    company: "Yourway Learning",
-    role: "Senior UX Designer & Product Manager",
-    dates: "Aug 2024 – Present",
-    location: "United States (remote)",
+    company: "Hibrids",
+    role: "Senior Product Designer",
+    dates: "Sept 2026 – Present",
+    location: "Colombia",
     bullets: [
-      "Directed product strategy and roadmap planning across cross-functional teams.",
-      "Owned user research, wireframing, and prototyping for validated product decisions.",
-      "Authored PRDs and user stories for clear engineering handoff.",
-      "Integrated agentic AI (Claude) into the design process to accelerate ideation and workflows.",
+      "Leading product design for a fintech solution — improving discoverability so customers can find and complete key flows more easily.",
+      "Strengthening accessibility across the product so more users can use core features with confidence.",
+      "Designing and shipping new features while refining the end-to-end experience.",
+      "Partnering with product and engineering to turn opportunity areas into usable, launch-ready interfaces.",
     ],
     sort: 1,
   },
   {
     id: "e2",
-    company: "Globant",
-    role: "Senior UX Designer",
-    dates: "2022 – 2025",
-    location: "Colombia",
+    company: "Yourway Learning",
+    role: "Senior UX Designer & Product Manager",
+    dates: "Jul 2025 – Aug 2026",
+    location: "United States",
     bullets: [
-      "Fortnite (Epic Games): redesigned the in-game Locker; prototyped in Figma and Unreal; playtested with UserTesting.",
-      "160 Drivers Academy: led research, design system, Maze usability tests, and design-team leadership in Agile.",
+      "Directed product strategy and roadmap planning across cross-functional teams, aligning design, engineering, and business goals.",
+      "Owned user research, wireframing, and prototyping to translate customer needs into validated product decisions.",
+      "Authored PRDs and user stories for clear, actionable engineering handoff.",
+      "Integrated agentic AI (Claude) into the design process to accelerate ideation, workflows, and product development.",
     ],
     sort: 2,
   },
   {
     id: "e3",
-    company: "Encora",
-    role: "Senior UX/UI Designer",
-    dates: "2021 – 2022",
+    company: "Globant",
+    role: "Senior UX Designer II",
+    dates: "2022 – 2025",
     location: "Colombia",
     bullets: [
-      "MiBanco: research, journeys, personas, low-fi prototypes, and the company’s first design system + DesignOps.",
-      "Also delivered research and testing across eDoula, Amazon, and eWallet projects.",
+      "Fortnite (Epic Games, Oct 2022 – Jul 2025): redesigned the in-game Locker through research, journeys, and flows; prototyped in Figma and Unreal; playtested with UserTesting.",
+      "160 Drivers Academy (Dec 2021 – Oct 2022): led research, design system, Maze usability tests, and the design team in Agile.",
     ],
     sort: 3,
   },
   {
     id: "e4",
+    company: "Encora",
+    role: "Senior UX/UI Designer",
+    dates: "2021 – 2022",
+    location: "Colombia",
+    bullets: [
+      "MiBanco (Apr 2021 – Jan 2022): research, journeys, personas, low-fi prototypes, and the company’s first design system plus DesignOps.",
+      "eDoula, Amazon, and eWallet (Feb 2021 – Apr 2021): research, journeys, personas, and Maze usability testing across three concurrent projects.",
+    ],
+    sort: 4,
+  },
+  {
+    id: "e5",
     company: "Boken SAS",
     role: "Product Designer",
     dates: "2014 – 2021",
     location: "Colombia",
     bullets: [
-      "Led UX for Notiplac — automotive loyalty and operations product for after-sales service.",
-      "Drove retention above the client’s 2% target (+7.5%) and saved managers up to an hour per day.",
+      "Led UX for Notiplac — automotive loyalty and operations for after-sales service on mobile and web.",
+      "Retention rose at least 7.5% for most clients (above a 2% target); car managers saved up to an hour a day.",
     ],
-    sort: 4,
+    sort: 5,
   },
 ];
 
@@ -3103,44 +3153,30 @@ export const skillEdges: SkillEdge[] = [
 export const certifications: Certification[] = [
   {
     id: "c1",
-    name: "Introduction to UX Writing",
-    issuer: "Domestika",
-    issued_at: "2022-09",
-    credential_id: "d36a5d7ad755382a96162b3c099ab03f",
+    name: "Unreal Engine: Foundation Course For UI Artists",
+    issuer: "Globant",
+    issued_at: "2024",
+    credential_id: null,
   },
   {
     id: "c2",
-    name: "Introduction to UX Design",
-    issuer: "Domestika",
-    issued_at: "2020-11",
-    credential_id: "5a7ac0d89f7aca59914851a11a1b8d3d",
+    name: "Video Game Design",
+    issuer: "Certification",
+    issued_at: "2023",
+    credential_id: null,
   },
   {
     id: "c3",
-    name: "Unreal Engine: Foundation Course For UI Artists",
-    issuer: "Globant",
-    issued_at: "2024-02",
+    name: "UX Writing",
+    issuer: "Certification",
+    issued_at: "2021",
     credential_id: null,
   },
   {
     id: "c4",
-    name: "Video Game Production Using UX Methods",
-    issuer: "Domestika",
-    issued_at: "2023-10",
-    credential_id: "ac07f4f202458a98a4f2014f39c41336",
-  },
-  {
-    id: "c5",
     name: "Lean UX",
     issuer: "Certification",
     issued_at: "2020",
-    credential_id: null,
-  },
-  {
-    id: "c6",
-    name: "Video Game Design",
-    issuer: "Certification",
-    issued_at: "2023",
     credential_id: null,
   },
 ];

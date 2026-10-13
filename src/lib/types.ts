@@ -148,6 +148,8 @@ export type Project = {
   cover_url: string | null;
   sort: number;
   published: boolean;
+  years: string;
+  year_end: number;
   brief: string | null;
   problem: string | null;
   goals?: string[];

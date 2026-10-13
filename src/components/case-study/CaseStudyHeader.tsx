@@ -7,6 +7,12 @@ export function CaseStudyHeader({ project }: { project: Project }) {
       <h1>{project.title}</h1>
       <p className="case-summary">{project.summary}</p>
       <dl className="case-meta">
+        {project.years ? (
+          <div>
+            <dt>Years</dt>
+            <dd>{project.years}</dd>
+          </div>
+        ) : null}
         <div>
           <dt>Role</dt>
           <dd>{project.role}</dd>

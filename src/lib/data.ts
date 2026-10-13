@@ -47,6 +47,8 @@ function seededProfile(): Profile {
 function normalizeProject(project: Project): Project {
   return {
     ...project,
+    years: project.years ?? "",
+    year_end: Number(project.year_end) || 0,
     categories: project.categories ?? [],
     platforms: project.platforms ?? [],
     methodologies: project.methodologies ?? [],
