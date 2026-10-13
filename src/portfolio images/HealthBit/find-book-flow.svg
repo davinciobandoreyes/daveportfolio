@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" role="img" aria-labelledby="hbTitle hbDesc">
+  <title id="hbTitle">Find a verified doctor and become listable</title>
+  <desc id="hbDesc">Patient: directory, search, profile, book. Doctor: RETHUS review, REPS, ID, selfie, hidden from search until an admin approves RETHUS.</desc>
+  <rect width="1120" height="520" fill="#fafafa"/>
+  <style>
+    .box { fill: #fff; stroke: #ebebeb; }
+    .box-end { fill: #d3e5ff; stroke: #d3e5ff; }
+    .kicker { font-family: ui-monospace, monospace; font-size: 11px; fill: #888; }
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 600; fill: #171717; }
+    .sub { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; fill: #4d4d4d; }
+    .arrow { stroke: #a1a1a1; fill: none; stroke-width: 1.5; }
+    .head { fill: #a1a1a1; }
+  </style>
+
+  <text class="kicker" x="24" y="28">PATIENT</text>
+
+  <rect class="box" x="24" y="44" width="196" height="80" rx="10"/>
+  <text class="label" x="40" y="78">Directory</text>
+  <text class="sub" x="40" y="98">Verified-doctors hero</text>
+
+  <path class="arrow" d="M220 84 H248"/>
+  <polygon class="head" points="248,80 258,84 248,88"/>
+
+  <rect class="box" x="258" y="44" width="196" height="80" rx="10"/>
+  <text class="label" x="274" y="78">Search</text>
+  <text class="sub" x="274" y="98">Name + Buscar / Enter</text>
+
+  <path class="arrow" d="M454 84 H482"/>
+  <polygon class="head" points="482,80 492,84 482,88"/>
+
+  <rect class="box" x="492" y="44" width="196" height="80" rx="10"/>
+  <text class="label" x="508" y="78">Open a card</text>
+  <text class="sub" x="508" y="98">Public profile</text>
+
+  <path class="arrow" d="M688 84 H716"/>
+  <polygon class="head" points="716,80 726,84 716,88"/>
+
+  <rect class="box-end" x="726" y="44" width="370" height="80" rx="10"/>
+  <text class="label" x="742" y="78">Book in person</text>
+  <text class="sub" x="742" y="98">Sticky agenda / mobile sheet · demo HB-######</text>
+
+  <text class="sub" x="24" y="150">No match on 3+ characters: a demo RETHUS panel (not listed / listed enabled / listed not enabled). No profile. Discarded on reload.</text>
+  <text class="sub" x="24" y="170">REPS seal only if REPS was accepted. WhatsApp is a separate icon. Typing alone does not filter.</text>
+
+  <text class="kicker" x="24" y="214">DOCTOR</text>
+
+  <rect class="box" x="24" y="230" width="168" height="80" rx="10"/>
+  <text class="label" x="40" y="264">RETHUS</text>
+  <text class="sub" x="40" y="284">Human review · no API</text>
+
+  <path class="arrow" d="M192 270 H214"/>
+  <polygon class="head" points="214,266 224,270 214,274"/>
+
+  <rect class="box" x="224" y="230" width="168" height="80" rx="10"/>
+  <text class="label" x="240" y="264">REPS</text>
+  <text class="sub" x="240" y="284">Badge · not a search gate</text>
+
+  <path class="arrow" d="M392 270 H414"/>
+  <polygon class="head" points="414,266 424,270 414,274"/>
+
+  <rect class="box" x="424" y="230" width="168" height="80" rx="10"/>
+  <text class="label" x="440" y="264">ID + selfie</text>
+  <text class="sub" x="440" y="284">Front, back, photo</text>
+
+  <path class="arrow" d="M592 270 H614"/>
+  <polygon class="head" points="614,266 624,270 614,274"/>
+
+  <rect class="box" x="624" y="230" width="168" height="80" rx="10"/>
+  <text class="label" x="640" y="264">Degrees</text>
+  <text class="sub" x="640" y="284">Optional · not Gemini</text>
+
+  <path class="arrow" d="M792 270 H814"/>
+  <polygon class="head" points="814,266 824,270 814,274"/>
+
+  <rect class="box-end" x="824" y="230" width="272" height="80" rx="10"/>
+  <text class="label" x="840" y="264">Hidden from search</text>
+  <text class="sub" x="840" y="284">Until @healthbit.co approves RETHUS</text>
+
+  <text class="sub" x="24" y="348">The doctor can keep working in the portal while RETHUS is pending. Pause or a rejected RETHUS keeps them out of the directory.</text>
+  <text class="sub" x="24" y="368">Approved, unpaused RETHUS is the only search gate. REPS is a separate human review.</text>
+</svg>

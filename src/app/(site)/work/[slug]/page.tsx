@@ -85,13 +85,17 @@ export default async function CaseStudyPage({ params }: Props) {
 
         {project.brief && (
           <CaseStudySection title="Project brief">
-            <p>{project.brief}</p>
+            {project.brief.split(/\n\n+/).map((para) => (
+              <p key={para}>{para}</p>
+            ))}
           </CaseStudySection>
         )}
 
         {project.problem && (
           <CaseStudySection title="Problem to address">
-            <p>{project.problem}</p>
+            {project.problem.split(/\n\n+/).map((para) => (
+              <p key={para}>{para}</p>
+            ))}
           </CaseStudySection>
         )}
 
