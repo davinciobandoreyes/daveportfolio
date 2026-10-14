@@ -423,6 +423,47 @@ export const truckersDesignThinkingProcess: DesignProcess = {
   ],
 };
 
+export const bankeeProcess: DesignProcess = {
+  lead: "Discovery, Define, then Ideation & Test — a five-day challenge to get statements and transaction history out of the app as a PDF.",
+  phases: [
+    {
+      id: "discover",
+      title: "Discovery",
+      space: "problem",
+      steps: [
+        { label: "Desktop research" },
+        { label: "Benchmark", emphasis: true },
+      ],
+    },
+    {
+      id: "define",
+      title: "Define",
+      space: "problem",
+      steps: [
+        { label: "Pain points" },
+        { label: "Affinity diagram" },
+        { label: "Impact vs effort" },
+      ],
+    },
+    {
+      id: "ideate",
+      title: "Ideate",
+      space: "solution",
+      steps: [{ label: "Flowcharts" }, { label: "Wireframes" }],
+    },
+    {
+      id: "test",
+      title: "Ideation & Test",
+      space: "solution",
+      steps: [
+        { label: "Maze usability test", emphasis: true },
+        { label: "Hi-fi" },
+        { label: "Recoverable errors" },
+      ],
+    },
+  ],
+};
+
 export const doubleDiamondProcess: DesignProcess = {
   lead: "Double Diamond, with extra weight on competitive benchmarking and usability testing.",
   phases: [
@@ -454,6 +495,51 @@ export const doubleDiamondProcess: DesignProcess = {
       steps: [
         { label: "Usability testing", emphasis: true },
         { label: "Iterate and ship" },
+      ],
+    },
+  ],
+};
+
+export const fortniteLockerProcess: DesignProcess = {
+  lead: "Double Diamond, with extra weight on competitive benchmarking and playtesting.",
+  phases: [
+    {
+      id: "discover",
+      title: "Discover",
+      space: "problem",
+      steps: [
+        { label: "Desktop research" },
+        { label: "Benchmark", emphasis: true },
+      ],
+    },
+    {
+      id: "define",
+      title: "Define",
+      space: "problem",
+      steps: [
+        { label: "User journeys" },
+        { label: "Affinity diagram" },
+        { label: "Flowcharts" },
+      ],
+    },
+    {
+      id: "prototype",
+      title: "Prototype",
+      space: "solution",
+      steps: [
+        { label: "Wireframes" },
+        { label: "Low-fi" },
+        { label: "Design system + greyscale" },
+      ],
+    },
+    {
+      id: "deliver",
+      title: "Deliver",
+      space: "solution",
+      steps: [
+        { label: "Hi-fi in Figma" },
+        { label: "User testing", emphasis: true },
+        { label: "UX writing" },
       ],
     },
   ],
@@ -1505,19 +1591,182 @@ export const projects: Project[] = [
         "A mobile and web overview where a wallet — cash or bank — feeds budgets, category spend, and what is left this month.",
     },
   },
-  stubProject({
+  {
     id: "p-bankee",
     slug: "bankee",
-    title: "Bankee",
+    title: "Download statements in the app",
     client: "Bankee",
+    company_url: null,
+    role: "UX Designer",
+    summary:
+      "Get a monthly statement or a custom transaction PDF from Bankee without leaving the phone — and without a support ticket.",
     categories: ["fintech", "use-cases"],
-    cover_url: null,
+    platforms: ["Mobile"],
+    cover_url: "/work/bankee.jpg",
     sort: 9,
-    summary: "Fintech UX and use-case design for Bankee.",
-    process: doubleDiamondProcess,
+    published: true,
     years: "2026",
     year_end: 2026,
-  }),
+    brief:
+      "Design an in-app way to download a monthly bank statement or a custom date-range of transactions as a PDF, so people do not have to leave the mobile app or call support.",
+    problem:
+      "People struggle to get a bank statement or a transaction history. The download is hidden, confusing, or sends them to the web. That friction fills the support queue.",
+    goals: [
+      "Download transaction history quickly",
+      "Feel confident the exported document is accurate",
+      "Share statements with accountants, lenders, or for personal finance",
+      "Stay inside the mobile app",
+      "Reduce support tickets about bank statements",
+    ],
+    methodologies: [
+      "Desktop research",
+      "Competitive benchmarking",
+      "Affinity diagram",
+      "Impact vs effort",
+      "Flowcharts",
+      "Wireframes",
+      "Maze usability testing",
+    ],
+    technologies: ["Figma", "Maze"],
+    leadership: null,
+    impact_metrics: [
+      {
+        label: "Monthly statement",
+        value: "4/6",
+        note: "Participants who finished Flow 1 in the Maze test.",
+      },
+      {
+        label: "Custom history",
+        value: "4/6",
+        note: "Participants who finished Flow 2 in the Maze test.",
+      },
+      {
+        label: "Full sessions",
+        value: "4 of 6",
+        note: "Six recruited; four completed every task. Two gave partial feedback only.",
+      },
+    ],
+    process: bankeeProcess,
+    journey: {
+      title: "Get a PDF to the accountant — from the phone",
+      lead: "The Maze tasks: July 2026 statement for taxes, then transactions from August 1–5. Stay on the phone. Do not open a laptop.",
+      steps: [
+        {
+          title: "Need a document",
+          emotion: "Stuck",
+          goal: "Send the accountant a statement or a date range.",
+          action: "Opens Bankee on the phone, away from a computer.",
+          opportunity: "The download has to live where they already read transactions.",
+        },
+        {
+          title: "Find Download",
+          emotion: "Unsure",
+          goal: "See a way out without settings or the web.",
+          action: "Looks on the activity list for an export.",
+          opportunity: "A Download action on Transactions — then a modal that splits statement vs history.",
+        },
+        {
+          title: "Pick the document",
+          emotion: "Focused",
+          goal: "Get the official month, or a custom range.",
+          action: "Chooses Bank Statement or Recent Transactions, then a month or dates.",
+          opportunity: "Presets for common ranges; start and end dates when they need custom.",
+        },
+        {
+          title: "Check before it generates",
+          emotion: "Cautious",
+          goal: "Know the PDF is the right period and the right money.",
+          action: "Reads a spend summary and a movement list.",
+          opportunity: "Income, spent, remaining — then generate.",
+        },
+        {
+          title: "Share or save",
+          emotion: "Relieved",
+          goal: "Get the file to Files, print, or the accountant.",
+          action: "Uses the system share sheet from the preview.",
+          opportunity: "If it fails, retry, change dates, or cancel — not a dead error.",
+        },
+      ],
+    },
+    flow: {
+      title: "Statement or transaction history",
+      lead: "Two documents from one Download. A monthly statement is the official period. Recent transactions take a preset or a custom range. Both end in a native share.",
+      lanes: [
+        {
+          title: "Monthly statement",
+          steps: [
+            { label: "Transactions", detail: "Tap Download" },
+            { label: "Bank Statement", detail: "Official completed period" },
+            {
+              label: "Period available?",
+              kind: "decision",
+              detail: "Pick a month",
+              branch: {
+                label: "No statements yet",
+                detail: "Offer recent transactions instead",
+              },
+            },
+            { label: "Review summary", detail: "Spend snapshot + details" },
+            {
+              label: "PDF generated?",
+              kind: "decision",
+              detail: "System builds the file",
+              branch: { label: "Generation failure", detail: "Retry or cancel" },
+            },
+            { label: "Preview, share, done", kind: "end", detail: "Native iOS share" },
+          ],
+        },
+        {
+          title: "Recent transactions",
+          steps: [
+            { label: "Transactions", detail: "Tap Download" },
+            { label: "Transaction history", detail: "User-defined range" },
+            {
+              label: "Valid range?",
+              kind: "decision",
+              detail: "Preset or start / end dates",
+              branch: { label: "Invalid range", detail: "Adjust the dates" },
+            },
+            {
+              label: "Transactions found?",
+              kind: "decision",
+              detail: "Count + spend summary",
+              branch: { label: "Empty range", detail: "Choose another period" },
+            },
+            { label: "Preview, share, done", kind: "end", detail: "Native iOS share" },
+          ],
+        },
+      ],
+    },
+    decisions: [
+      {
+        title: "Download on Transactions — then a modal",
+        why: "People expect export where they already read activity. A Download button is the entry. A modal keeps the list clean and splits Bank Statement from Recent Transactions without mystery icons.",
+      },
+      {
+        title: "Monthly statements first",
+        why: "A statement is the official document accountants and lenders ask for. Recent transactions sit second.",
+      },
+      {
+        title: "Show a spend summary before the PDF",
+        why: "Competitors jump to a date range with no context. Income, spent, and remaining let people check they have the right period before they generate.",
+      },
+      {
+        title: "Presets plus separate start and end dates",
+        why: "Today, last 7 days, last 30 days cover common asks. Split start and end fields make a custom range obvious on a phone. A single range calendar can be faster, but testers found it less clear.",
+      },
+    ],
+    star: {
+      title: "Get the PDF without leaving the app",
+      situation:
+        "People could not find a bank statement or a transaction history in Bankee. The download was buried, confusing, or sent them to the web — and support took the tickets.",
+      task: "Design an in-app PDF download for a monthly statement and for a custom date range, in a five-day challenge, and prove it in a Maze test.",
+      action:
+        "Separated official statements from user-defined transaction exports. Benchmarked Chase, Bank of America, Capital One, Revolut, Wise, and Rappi. Mapped pain into an affinity diagram and an impact-versus-effort graph. Wired two flows, tested six people on Maze, then designed hi-fi with a spend preview, date presets, and errors you can recover from.",
+      result:
+        "Four of six participants finished both tasks. Download sits on Transactions. A modal splits the two documents. Failures say what happened and offer retry or a new date — instead of a spinner and a support ticket.",
+    },
+  },
   {
     id: "p-mibanco",
     slug: "mibanco",
@@ -1663,7 +1912,7 @@ export const projects: Project[] = [
     company_url: "https://www.fortnite.com/",
     role: "Senior UX Designer",
     summary:
-      "Redesigned the Fortnite Locker across console, PC, and mobile to improve returning-user engagement.",
+      "Redesigned the Fortnite Locker and loadout presets across console, PC, and mobile so returning players could set a look faster, with actions that actually meant what they said.",
     categories: ["gaming"],
     platforms: [
       "Desktop",
@@ -1678,30 +1927,159 @@ export const projects: Project[] = [
     years: "2023–2025",
     year_end: 2025,
     brief:
-      "Redesign the in-game Locker experience for Fortnite players across multiple interaction environments.",
+      "Redesign Fortnite’s in-game Locker so a returning player can set a loadout, randomize a full look, and save it as a named preset — the same pattern on Desktop, Switch, PlayStation, Xbox, and Mobile. Move the Locker off a matrix onto a categorized list so new cosmetic types can grow without breaking the layout.",
     problem:
-      "Returning players needed a clearer, more engaging Locker that increased adoption of key features without breaking multi-platform interaction patterns.",
-    methodologies: [
-      "User research",
-      "Competitive benchmarking",
-      "Customer journeys",
-      "User flows",
-      "Playtesting",
+      "The Locker is how players dress for a match, but it fought them. Cosmetics sat in a matrix, so every new type — cars, instruments, LEGO kits — needed another cell the layout could not absorb. Shuffle in one slot could change the look next game. Saving a preset did not let them name it — on create or overwrite — so the list filled with copies. Button labels did not match the action, and they broke in other languages. All of that had to stay coherent on five platforms.",
+    goals: [
+      "Speed up loadout setup",
+      "Raise Locker usage",
+      "Add randomize, reset, and save without breaking console, PC, or mobile patterns",
+      "Scale the Locker with a categorized list so new cosmetics can ship without a layout rewrite",
     ],
-    technologies: ["Figma", "Unreal Engine", "UserTesting"],
-    leadership: null,
+    methodologies: [
+      "Double Diamond",
+      "Desktop research",
+      "Competitive benchmarking",
+      "User journeys",
+      "Flowcharts",
+      "Affinity diagram",
+      "Wireframes",
+      "Low-fi prototypes",
+      "Playtesting",
+      "UX writing",
+    ],
+    technologies: ["Figma", "Unreal Engine", "UserTesting", "Fortnite Design System"],
+    leadership:
+      "The team owned the redesign of the loadout preset system — saved load tiles, shuffle, key binds, flows, and user testing — and moved cosmetics from a matrix to a categorized list so the Locker could scale.",
     impact_metrics: [
       {
-        label: "Engagement",
-        value: "↑ returning users",
-        note: "Improved adoption of key Locker features",
+        label: "Players returned",
+        value: "200k+",
+        note: "Players who came back to Fortnite after the new features — team-wide.",
       },
       {
-        label: "Platforms",
-        value: "5 platforms",
-        note: "Desktop, Switch, PlayStation, Xbox, Mobile",
+        label: "Loadout setup",
+        value: "up to 14% faster",
+        note: "Players set a loadout quicker after the Locker updates.",
+      },
+      {
+        label: "Cosmetics ecosystem",
+        value: "Matrix → list",
+        note: "Categorized list so new cosmetic types grow across environments without a layout rewrite.",
       },
     ],
+    process: fortniteLockerProcess,
+    journey: {
+      title: "Set a loadout before the match",
+      lead: "Open the Locker, try a look, save it as a named preset, then ready up.",
+      steps: [
+        {
+          title: "Open the Locker",
+          emotion: "Rushed",
+          goal: "Get a loadout ready before queueing.",
+          action: "Opens the Locker from the lobby and scans equipped slots.",
+          opportunity: "Saved load tiles make the current look readable at a glance.",
+        },
+        {
+          title: "Equip across slots",
+          emotion: "Focused",
+          goal: "Build a look from skin, backpack, pickaxe, glider, and trail.",
+          action: "Picks items slot by slot, or leaves some on the last match.",
+          opportunity: "Clear slot chrome so five platforms share the same map of the body.",
+        },
+        {
+          title: "Randomize or reset",
+          emotion: "Curious",
+          goal: "Try a full look without rebuilding every slot.",
+          action: "Hits randomize for a whole loadout, or reset / clear to start again.",
+          opportunity: "Randomize must not be shuffle-per-slot — that look changes between matches.",
+        },
+        {
+          title: "Save and name the preset",
+          emotion: "Careful",
+          goal: "Keep this look without losing the last one.",
+          action: "Quick Saves, Saves As New, or overwrites — and names the preset either way.",
+          opportunity: "Name on create and on overwrite so players stop spawning untitled copies.",
+        },
+        {
+          title: "Ready up",
+          emotion: "Ready",
+          goal: "Take the look into the match.",
+          action: "Leaves the Locker with the preset equipped.",
+          opportunity: "Key binds and shuffle stay available without another hunt through the menu.",
+        },
+      ],
+    },
+    flow: {
+      title: "Randomize a loadout — or keep shuffle",
+      lead: "Shuffle still lives per category and changes between matches. Randomize hits the whole loadout, stays until the next randomize, and only touches cosmetic slots.",
+      lanes: [
+        {
+          title: "Shuffle (per slot)",
+          steps: [
+            { label: "Open a category", detail: "Skin, backpack, pickaxe…" },
+            { label: "Shuffle", detail: "Random item in that slot only" },
+            {
+              label: "Keep it?",
+              kind: "decision",
+              detail: "This look can change next match",
+              branch: { label: "Shuffle again", detail: "Still one slot" },
+            },
+            { label: "Queue", kind: "end", detail: "Slot may reshuffle later" },
+          ],
+        },
+        {
+          title: "Randomize (whole loadout)",
+          steps: [
+            { label: "Hover Randomize", detail: "Tooltip vs shuffle" },
+            {
+              label: "Randomize",
+              detail: "Skin, backpack, pickaxe, glider, trail",
+            },
+            { label: "3D preview", detail: "The zone confirms the new look" },
+            {
+              label: "Keep this look?",
+              kind: "decision",
+              detail: "Does not change between matches",
+              branch: { label: "Reset or clear", detail: "Start the loadout again" },
+            },
+            { label: "Quick Save or Save As New", kind: "end", detail: "Name the preset" },
+          ],
+        },
+      ],
+    },
+    decisions: [
+      {
+        title: "Icons instead of long button labels",
+        why: "The button name did not represent the action, and text was easy to misread across languages. Dice, broom, and back-arrow icons did what testers expected; a badge icon did not, so we kept exploring.",
+      },
+      {
+        title: "Rewrite Randomize so it beats shuffle-per-slot",
+        why: "The first tooltip was not descriptive enough. The shipped line: generate a random loadout across all slots; unlike shuffle in each category, this look will not change between matches.",
+      },
+      {
+        title: "Limit randomize to cosmetic slots",
+        why: "Playtests asked to cap the blast radius. Randomize applies to skin, backpack, pickaxe, glider, and trail — not every slot in the Locker.",
+      },
+      {
+        title: "Name presets on create and on overwrite",
+        why: "Players could not rename when they overwrote, so they spawned a new preset every time they changed a look. Naming on create and on overwrite lets them manage the list without copies.",
+      },
+      {
+        title: "Leave the matrix for a categorized list",
+        why: "A matrix could not take new cosmetic types without another cell and another break. A list with precise categories — character, emotes, wraps, cars, instruments, LEGO kits — lets the Locker grow without rewriting the layout.",
+      },
+    ],
+    star: {
+      title: "Randomize a whole loadout",
+      situation:
+        "Returning players set a loadout in the Locker before every match. Shuffle existed per category and changed between matches, so trying a full look was slow and easy to confuse. The Locker had to stay consistent on Desktop, Switch, PlayStation, Xbox, and Mobile.",
+      task: "Redesign the loadout and preset system — randomize, reset, clear, quick save, save as new, and preset naming — move cosmetics from a matrix to a categorized list so new types can scale, and prove it in playtests.",
+      action:
+        "Ran Double Diamond. Benchmarked how other games solved locker problems. Prototyped in the Fortnite design system with a greyscale plugin so tests focused on usability. Clustered UserTesting notes in an affinity diagram and iterated icons, tooltip copy, and which slots randomize could touch. Replaced the matrix with a categorized list so new cosmetics could ship without a layout rewrite.",
+      result:
+        "Loadout setup speed improved by up to 14%. About 200k+ players returned to Fortnite after the new features. Shipped randomize loadout, preset naming on create and overwrite, saved load tiles, shuffle, and key binds — and a Locker that can take new cosmetic types as a list, not a matrix.",
+    },
   },
   {
     id: "p-pokemon-unite",
@@ -2502,22 +2880,128 @@ export const projectArtifacts: ProjectArtifact[] = [
     sort: 3,
   },
   {
-    id: "a1",
+    id: "a-fortnite-affinity",
     project_id: "p-fortnite",
     type: "ux_artifact",
-    title: "Competitive benchmarking & journeys",
-    body: "Mapped competitive Locker patterns and customer journeys to ground the redesign in player behavior.",
-    image_url: null,
+    title: "Playtest affinity — Randomize loadout",
+    body: "UserTesting notes clustered into new ideas, negatives, positives, and solutions. Tooltips were not descriptive enough; dice and broom icons were clear; randomize had to be limited to skin, backpack, pickaxe, glider, and trail.",
+    image_url: "/work/fortnite-locker/affinity-randomize.jpg",
     sort: 1,
   },
   {
-    id: "a2",
+    id: "a-fortnite-lowfi",
     project_id: "p-fortnite",
-    type: "user_flow",
-    title: "Multi-platform Locker flows",
-    body: "User flows covering Desktop, Switch, PlayStation, Xbox, and Mobile interaction environments.",
-    image_url: null,
+    type: "low_fi",
+    title: "Benchmark and greyscale prototypes",
+    body: "Competitive locker patterns on the left; Fortnite design-system wireframes in greyscale on the right so playtests stayed on usability, not color.",
+    image_url: "/work/fortnite-locker/wireframes-greyscale.jpg",
+    sort: 1,
+  },
+  {
+    id: "a-fortnite-loadout",
+    project_id: "p-fortnite",
+    type: "hi_fi",
+    title: "Loadout — randomize, reset, save",
+    body: "Icon actions on the loadout, plus Quick Save, Save As New, Load, and Shuffle — the path that sped setup by up to 14%.",
+    image_url: "/work/fortnite-locker/loadout-screen.jpg",
+    group: "Console",
+    sort: 1,
+  },
+  {
+    id: "a-fortnite-look",
+    project_id: "p-fortnite",
+    type: "hi_fi",
+    title: "Character loadout",
+    body: "My Locker Loadout with Save Loadout and View All Loadouts — cosmetics that work across Battle Royale, Fortnite Festival, and Rocket Racing.",
+    image_url: "/work/fortnite-locker/locker-look.jpg",
+    group: "Locker",
     sort: 2,
+  },
+  {
+    id: "a-fortnite-saved",
+    project_id: "p-fortnite",
+    type: "hi_fi",
+    title: "Saved character tiles",
+    body: "Named presets in a grid — 19 of 100 — beside a categorized list (character, emotes, wraps, cars, instruments, LEGO kits) so new cosmetic types can grow without a matrix.",
+    image_url: "/work/fortnite-locker/saved-characters.jpg",
+    group: "Presets",
+    sort: 3,
+  },
+  {
+    id: "a-fortnite-presets",
+    project_id: "p-fortnite",
+    type: "hi_fi",
+    title: "Name a preset on create and overwrite",
+    body: "Name Your Preset when saving a new slot, and again when overwriting, so players can organize looks without spawning a copy every change.",
+    image_url: "/work/fortnite-locker/preset-naming.jpg",
+    group: "Presets",
+    sort: 4,
+  },
+  {
+    id: "a-bankee-affinity",
+    project_id: "p-bankee",
+    type: "ux_artifact",
+    title: "Affinity — competitive and secondary research",
+    body: "Discoverability, efficiency, feedback, sharing, confidence, and security. The pattern: people expect export where they already manage transactions, and they want a preview before the file exists.",
+    image_url: "/work/bankee/affinity.jpg",
+    sort: 1,
+  },
+  {
+    id: "a-bankee-insights",
+    project_id: "p-bankee",
+    type: "ux_artifact",
+    title: "What competitors miss",
+    body: "Banks support downloads. Few explain the money, show progress, or recover from a failed generate. Opportunity: Download on Transactions, a loading state, a monthly summary, and errors you can act on.",
+    image_url: "/work/bankee/insights-benchmark.jpg",
+    sort: 2,
+  },
+  {
+    id: "a-bankee-wire-st",
+    project_id: "p-bankee",
+    type: "low_fi",
+    title: "Statements wireframe",
+    body: "Discover Download, pick a month, review, generate, then share — hierarchy before visual style.",
+    image_url: "/work/bankee/wire-statements.jpg",
+    sort: 1,
+  },
+  {
+    id: "a-bankee-wire-tx",
+    project_id: "p-bankee",
+    type: "low_fi",
+    title: "Recent transactions wireframe",
+    body: "Presets and a custom range, a summary, then the same generate-and-share close.",
+    image_url: "/work/bankee/wire-transactions.jpg",
+    sort: 2,
+  },
+  {
+    id: "a-bankee-hifi-st",
+    project_id: "p-bankee",
+    type: "hi_fi",
+    title: "Download a monthly statement",
+    body: "Download on the activity list, a modal that splits Bank Statement from Recent Transactions, and a spend summary on the PDF preview.",
+    image_url: "/work/bankee/hifi-statements.jpg",
+    group: "Flow 1",
+    sort: 1,
+  },
+  {
+    id: "a-bankee-hifi-tx",
+    project_id: "p-bankee",
+    type: "hi_fi",
+    title: "Download a custom date range",
+    body: "Presets for common periods, then separate start and end dates and an iOS calendar when the range is custom.",
+    image_url: "/work/bankee/hifi-transactions.jpg",
+    group: "Flow 2",
+    sort: 2,
+  },
+  {
+    id: "a-bankee-errors",
+    project_id: "p-bankee",
+    type: "hi_fi",
+    title: "Errors you can recover from",
+    body: "No statements, PDF failure, timeout, download failed, empty range — each one explains what happened and offers retry or a new date.",
+    image_url: "/work/bankee/errors.jpg",
+    group: "Recovery",
+    sort: 3,
   },
   {
     id: "a-mibanco-cover",

@@ -8,7 +8,7 @@ Inspired by a clean editorial layout (work-first), with:
 - Interactive skill tree (+ list view)
 - Full case-study pages
 - LinkedIn + CV download
-- Contact form (Supabase or local log in draft mode)
+- Contact form (Supabase or local log in draft mode; optional Resend email notify)
 
 ## Quick start
 
@@ -34,6 +34,25 @@ The site ships with seeded content from your CV and LinkedIn in `src/lib/seed.ts
 4. The first visit to `/admin` copies `src/lib/seed.ts` into those tables when the profile table is still empty.
 
 Public tables are read-only via RLS. `contact_messages` allows public inserts only. Analytics events have no public policy; the server writes them with the service-role key.
+
+## Contact email (optional, free)
+
+Uses [Resend](https://resend.com) Free (3,000 emails/month). The form still works without it.
+
+1. Create a free Resend account and an API key.
+2. Add to `.env.local` (and your host’s env):
+
+```
+RESEND_API_KEY=re_xxxx
+CONTACT_FROM_EMAIL=onboarding@resend.dev
+CONTACT_TO_EMAIL=davidobandoreyes@gmail.com
+```
+
+3. **Local / first test:** keep `CONTACT_FROM_EMAIL=onboarding@resend.dev`. Resend only delivers those to the email on your Resend account.
+4. **Production:** in Resend → Domains, verify your domain (DNS), then set `CONTACT_FROM_EMAIL` to an address on that domain (e.g. `hello@yourdomain.com`).
+5. Submit the contact form once and confirm the message arrives. Reply in your inbox uses the visitor’s address (`reply_to`).
+
+If Resend is down or misconfigured, the submission is still stored in Supabase (or logged locally).
 
 ## Scripts
 

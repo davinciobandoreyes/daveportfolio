@@ -1,8 +1,17 @@
 import { NextResponse } from "next/server";
+import { sendContactNotification } from "@/lib/email";
+import { rateLimit } from "@/lib/rate-limit";
 import { getSupabase } from "@/lib/supabase";
 
 export async function POST(request: Request) {
   try {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      "unknown";
+    if (!rateLimit(`contact:${ip}`, 5, 60 * 60 * 1000)) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
     const body = await request.json();
     const name = String(body.name ?? "").trim();
     const email = String(body.email ?? "").trim();
@@ -16,6 +25,7 @@ export async function POST(request: Request) {
     if (!supabase) {
       // Draft mode without Supabase — accept and log for local testing
       console.info("[contact]", { name, email, message });
+      await sendContactNotification({ name, email, message });
       return NextResponse.json({ ok: true, mode: "local" });
     }
 
@@ -30,6 +40,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Insert failed" }, { status: 500 });
     }
 
+    await sendContactNotification({ name, email, message });
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
