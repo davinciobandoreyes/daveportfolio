@@ -31,23 +31,28 @@ export async function sendContactNotification(payload: ContactEmailPayload) {
   }
 
   const { name, email, message } = payload;
-  const { error } = await resend.emails.send({
-    from,
-    to,
-    replyTo: email,
-    subject: `Portfolio contact from ${name}`,
-    text: [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      "",
-      message,
-    ].join("\n"),
-  });
+  try {
+    const { error } = await resend.emails.send({
+      from,
+      to,
+      replyTo: email,
+      subject: `Portfolio contact from ${name}`,
+      text: [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        "",
+        message,
+      ].join("\n"),
+    });
 
-  if (error) {
-    console.error("[contact-email]", error);
-    return { ok: false as const, error };
+    if (error) {
+      console.error("[contact-email]", error);
+      return { ok: false as const, error };
+    }
+
+    return { ok: true as const };
+  } catch (err) {
+    console.error("[contact-email]", err);
+    return { ok: false as const, error: err };
   }
-
-  return { ok: true as const };
 }

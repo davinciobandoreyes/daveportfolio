@@ -13,7 +13,8 @@ export function Contact({ profile }: { profile: Profile }) {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     const payload = {
       name: String(form.get("name") ?? ""),
       email: String(form.get("email") ?? ""),
@@ -29,7 +30,7 @@ export function Contact({ profile }: { profile: Profile }) {
       if (!res.ok) throw new Error("Failed");
       trackEvent("contact-submit");
       setStatus("ok");
-      e.currentTarget.reset();
+      formEl.reset();
     } catch {
       setStatus("error");
     }
