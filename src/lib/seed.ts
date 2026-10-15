@@ -3697,6 +3697,20 @@ export const skillEdges: SkillEdge[] = [
 
 export const certifications: Certification[] = [
   {
+    id: "c5",
+    name: "Artificial Intelligence for UXers",
+    issuer: "Certification",
+    issued_at: "2026",
+    credential_id: null,
+  },
+  {
+    id: "c6",
+    name: "AI Engineer",
+    issuer: "Certification",
+    issued_at: "Ongoing · 2026",
+    credential_id: null,
+  },
+  {
     id: "c1",
     name: "Unreal Engine: Foundation Course For UI Artists",
     issuer: "Globant",
