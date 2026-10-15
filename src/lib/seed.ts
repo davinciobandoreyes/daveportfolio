@@ -956,7 +956,18 @@ export const projects: Project[] = [
     ],
     technologies: ["Figma", "Trello", "Jira", "Lottie"],
     leadership: null,
-    impact_metrics: [],
+    impact_metrics: [
+      {
+        label: "Mural experience",
+        value: "Digitized",
+        note: "The Bronzeville mural becomes an interactive AR city on the ground.",
+      },
+      {
+        label: "Clean-energy learning",
+        value: "Gamified",
+        note: "Digitized Bronzeville microgrid play — place renewables, connect the city, learn climate on site.",
+      },
+    ],
     process: comedDesignThinkingProcess,
     insight: {
       title: "What people wanted in the city",
@@ -1083,7 +1094,18 @@ export const projects: Project[] = [
     ],
     leadership:
       "Created a design system for the company so the product could stay visually consistent as screens were added.",
-    impact_metrics: [],
+    impact_metrics: [
+      {
+        label: "Approx. diagnosis",
+        value: "< 5 min",
+        note: "Symptom scan to a starting set of possible causes in under five minutes.",
+      },
+      {
+        label: "Private doctor",
+        value: "< 15 min",
+        note: "Reach a private doctor for chat or video in under fifteen minutes.",
+      },
+    ],
     process: symptDesignThinkingProcess,
     insight: {
       title: "How people get a prescription",
@@ -1399,7 +1421,23 @@ export const projects: Project[] = [
     ],
     technologies: ["Figma", "Affinity Designer", "Trello", "Jira", "Lottie"],
     leadership: null,
-    impact_metrics: [],
+    impact_metrics: [
+      {
+        label: "Enter the network",
+        value: "3 steps",
+        note: "From open app to access at any gym in the membership.",
+      },
+      {
+        label: "Startup memberships",
+        value: "Automated",
+        note: "Gym owners run member access without hand-managing every signup.",
+      },
+      {
+        label: "Many gyms",
+        value: "One app",
+        note: "Instant access to the network — no extra gym apps to install on the road.",
+      },
+    ],
     process: wargoDesignThinkingProcess,
     insight: {
       title: "Why people stop training on the road",
@@ -1519,7 +1557,18 @@ export const projects: Project[] = [
     ],
     technologies: ["Figma", "FigJam"],
     leadership: null,
-    impact_metrics: [],
+    impact_metrics: [
+      {
+        label: "Data visualization",
+        value: "Visual",
+        note: "Charts and overview that make spend readable at a glance.",
+      },
+      {
+        label: "Financial data",
+        value: "Clearer read",
+        note: "Balance, budget, and what is left in one overview on phone and web.",
+      },
+    ],
     process: budgeeDesignThinkingProcess,
     decisions: [
       {
@@ -1631,19 +1680,14 @@ export const projects: Project[] = [
     leadership: null,
     impact_metrics: [
       {
-        label: "Monthly statement",
-        value: "4/6",
-        note: "Participants who finished Flow 1 in the Maze test.",
+        label: "Customer tickets",
+        value: "No support",
+        note: "Statement and history stay in the app — no call to support.",
       },
       {
-        label: "Custom history",
-        value: "4/6",
-        note: "Participants who finished Flow 2 in the Maze test.",
-      },
-      {
-        label: "Full sessions",
-        value: "4 of 6",
-        note: "Six recruited; four completed every task. Two gave partial feedback only.",
+        label: "Monthly or custom history",
+        value: "5 steps",
+        note: "From Transactions to a PDF for the month or a date range.",
       },
     ],
     process: bankeeProcess,
@@ -1802,7 +1846,13 @@ export const projects: Project[] = [
     ],
     technologies: ["Figma", "Trello", "Jira", "Lottie"],
     leadership: null,
-    impact_metrics: [],
+    impact_metrics: [
+      {
+        label: "Disbursement steps",
+        value: "up to 17% faster",
+        note: "Easier digital desk path to place a microloan without sending the client back to a branch.",
+      },
+    ],
     process: mibancoDesignThinkingProcess,
     insight: {
       title: "How loans left the bank",
@@ -2518,7 +2568,18 @@ export const projects: Project[] = [
     methodologies: ["Desktop research", "Design personas"],
     technologies: [],
     leadership: null,
-    impact_metrics: [],
+    impact_metrics: [
+      {
+        label: "Time and task data",
+        value: "Reports",
+        note: "Time management and task-type location analysis in one place.",
+      },
+      {
+        label: "Engagement",
+        value: "Gamified",
+        note: "Shells, the daily set, and a reef that outlives the checkbox.",
+      },
+    ],
     insight: {
       title: "Most written tasks never close",
       lead: "Secondary research — not Coral Todo’s own analytics. Loggd’s 21,655 one-off tasks: 36% completed, median open task 56 days overdue. Productivity apps sit near 17% the day after install and about 4% by day 30 (all apps closer to 7%). Lally et al. put the average habit at about 66 days — past a free-trial window.",
